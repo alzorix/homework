@@ -7,3 +7,4 @@ for x in range(2):
             for w in range(2):
                 if not(   (x <= (z == w)) or (not(y <=w))               ):
                     print(z,w,y,x)
+#z,w,y,x

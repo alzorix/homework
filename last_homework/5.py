@@ -17,3 +17,4 @@ for N in range(1,9999): #N - Натуральное число
      if int(bin_N,2) == 123:
         print(N)
         break
+#47
