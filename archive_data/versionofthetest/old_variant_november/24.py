@@ -10,7 +10,10 @@ ansewers = list()
 count =0
 for bukva in line:
     if bukva in alfabet:
-        count +=1
+        if count ==0 and bukva == "0":
+             count=0
+        else:
+            count +=1
     else:
         ansewers.append(count)
         count=0
