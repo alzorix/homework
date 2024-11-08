@@ -7,6 +7,7 @@ with open("17.txt") as file:
     while line !="":
         elements.append(line)
         line = file.readline().strip()
+
 max_pairs = -float("inf")
 for id in range(len(elements)-1):
     if (len(elements[id]) == 2 and len(elements[id+1]) != 2) or (len(elements[id+1]) == 2 and len(elements[id]) != 2):
