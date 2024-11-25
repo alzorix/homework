@@ -16,8 +16,12 @@ for a1 in alfabet_S:
                         for a7 in alfabet:
                             for a8 in alfabet:
                                 line = a1+a2+a3+a4+a5+a6+a7+a8
-                                if line.count("0") ==2:
-                                    print(line)
+
+
+
+
+
+
 
 # #Слишком много перебора,как сделать проще? Очень долго.
 
