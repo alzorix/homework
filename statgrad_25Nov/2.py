@@ -1,4 +1,4 @@
-#(x → (y → z)) ∧ (y → (z ≡ ¬w))
+#(x → (y → z)) ∧ (y → (z ≡ ¬w))1
 
 print("w,z,y,x")
 for x in range(2):
