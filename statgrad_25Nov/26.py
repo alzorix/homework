@@ -17,16 +17,17 @@ with open("26.txt") as file:
                     plus_balance+=i
                 if i != 0:
                     quest_len+=1
-            database = [-balance,-plus_balance,-quest_len,int(ID)]
+            database.append((balance,-plus_balance,-quest_len,int(ID)))
 
 database.sort()
-
+print(int(porog))
+print(len(database))
 good = database[int(porog)]
 
 
 for i in range(int(porog),-1,-1):
-    database.pop([i])
+    database.pop(i)
 
 print(good)
-print(database)
+
 # Почему ошибка возникает?
