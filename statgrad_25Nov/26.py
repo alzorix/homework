@@ -13,10 +13,11 @@ with open("26.txt") as file:
             plus_balance = 0
             quest_len = 0
             for i in temp:
-                if abs(i) == i:
-                    plus_balance+=i
                 if i != 0:
-                    quest_len+=1
+                    if abs(i) == i:
+                        plus_balance+=i
+
+                        quest_len+=1
             database.append((balance,-plus_balance,-quest_len,int(ID)))
 
 database.sort()
@@ -28,6 +29,6 @@ good = database[int(porog)]
 for i in range(int(porog),-1,-1):
     database.pop(i)
 
-print(good)
+
 
 # Почему ошибка возникает?
