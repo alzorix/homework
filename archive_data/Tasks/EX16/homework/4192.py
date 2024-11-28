@@ -16,11 +16,12 @@ def F(n):
         return F(n-1) + F(n-2)
     elif n>0 and n% 2 !=0:
         print(n)
-        return 1,5*F(n-1)
+        return 1.5*F(n-1)
     else:
         print("#")
         exit()
 
 line = F(15)
 check,trash= str(line).split(".")
-print(check,line)
+print(check)
+#3
