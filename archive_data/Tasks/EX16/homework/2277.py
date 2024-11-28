@@ -7,6 +7,12 @@ F(n) = F(n+2) + 2*F(n+3), при n ≤ 25
 Определите сумму цифр значения F(2).'''
 def F(n):
     if n > 25:
-        return 2*n**3
+        return 2*n**3 + n**2
     else:
         return F(n+2) + 2*F(n+3)
+c = 0
+l = str(F(2))
+for i in l:
+    c +=int(i)
+print(c)
+#33
