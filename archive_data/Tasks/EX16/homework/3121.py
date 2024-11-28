@@ -7,5 +7,12 @@ F(n) = 4·n + 2·F(n–4), если n ≥ 0 и нечётно.
 Чему равно значение функции F(33)? '''
 
 def F(n):
+    if n<0:
+        return -n
+    elif n>=0 and n%2 ==0:
+        return  2*n + 1 +  F(n-3)
+    elif n>=0 and n%2 !=0:
+        return 4*n + 2*F(n-4)
 
-
+print(F(33))
+#11612
