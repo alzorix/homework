@@ -18,18 +18,21 @@
 maxx = list()
 
 t = -float("inf")
-for N in range(234567890, 567891234+1):
 
-    binN = bin(N)[2::]
-    if N % 2 ==0:
-        binN = "11"+binN
-    else:
-        binN = "1" + binN + "10"
-    R = int(binN,2)
+binN = bin(234567890)[2::]
+print(len(binN))
+binN = bin(567891233)[2::]
+print(len(binN))
 
-    if R > t:
-        t = R
+if 567891233 % 2 == 0:
+    binN = "11" + binN
+else:
+    binN = "1" + binN + "10"
+R = int(binN, 2)
 
+if R > t:
+    t = R
 print(R)
 #3789116706
 #долго
+

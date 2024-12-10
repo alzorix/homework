@@ -8,7 +8,7 @@ F(n) = 3,3*F(n–2), при n ≥ 95
 Какая цифра встречается чаще всего в целой части значения функции F(33)? '''
 
 def F(n):
-    if F == 0:
+    if n == 0:
         return 2
     elif 0<n<=15:
         return F(n-1)
@@ -20,4 +20,4 @@ def F(n):
         print("Ошибка")
         exit()
 line = F(33)
-print(line) #???
+print(line) #3

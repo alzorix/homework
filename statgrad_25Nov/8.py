@@ -2,29 +2,14 @@
 ровно два нуля и не более четырёх цифр, для записи которых используются
 буквы.1'''
 
-alfabet = ('0','1','2','3','4','5','6','7','8','9','A','B','C','D','E')
+from  itertools import product
 
 
-alfabet_S = ('1','2','3','4','5','6','7','8','9','A','B','C','D','E')
+kolvo:int = 0
 
-for a1 in alfabet_S:
-    for a2 in alfabet:
-        for a3 in alfabet:
-            for a4 in alfabet:
-                for a5 in alfabet:
-                    for a6 in alfabet:
-                        for a7 in alfabet:
-                            for a8 in alfabet:
-                                line = a1+a2+a3+a4+a5+a6+a7+a8
-
-
-
-
-
-
-
-# #Слишком много перебора,как сделать проще? Очень долго.
-
-# from itertools import product
-# for NOLINE in product('0123456789ABCDE',repeat= 8):
-#     line = "".join(NOLINE)
+for i in product("01A",repeat =8 ):
+    s = "".join(i)
+    if s[0] != "0":
+        if s.count("0") == 2 and s.count("A") <=4:
+            kolvo+=5**s.count("A")*9**s.count("1")
+print(kolvo)
