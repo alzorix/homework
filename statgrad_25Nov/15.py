@@ -3,13 +3,13 @@
 логическое выражение
 (x ∈ Q) → (¬(x ∈ P) → ((¬(x ∈ R) ∧ ¬(x ∈ A)) → ¬(x ∈ Q)))
 истинно (т.е. принимает значение 1) при любом значении переменной x'''
-from readline import append_history_file
+
 
 
 def Q(x):
     return 18<=x<=91
 def P(x):
-    return 3<=x<43
+    return 3<=x<=43
 def R(x):
     return 72<=x<=115
 anns = list()
@@ -18,13 +18,19 @@ for a1 in range(0,150):
         FLAG = True
         x =0
         while x >=300:
-            if (Q(x)) <= (not((P(x))) <=((not((R(x))) and (not((a1<= x <=a2)))) <= (not(Q(x))))):
+            #if (Q(x)) <= (not((P(x))) <=((not((R(x))) and (not((a1<= x <=a2)))) <= (not(Q(x))))):
+            if (Q(x)) <= (not(P(x)) <= ((not(R(x)) and (not(a1<= x <=a2))) <= (not(Q(x))))):
                 None
             else:
                 FLAG = False
                 break
-            x+= 0.5
+            x+= 1
         if FLAG:
             anns.append(a2-a1)
 anns.sort()
-print(anns)
+
+#Вроде как всё хорошо
+
+#Для красоты:
+#print(anns)
+print(min(anns))
