@@ -17,4 +17,6 @@ for bukva in line:
     else:
         ansewers.append(count)
         count=0
+    if count !=0:
+        ansewers.append(count)
 print(max(ansewers))
