@@ -34,7 +34,7 @@ database = list()
 
 with open("26.txt") as file:
     line = file.readline().strip()
-    porog = int(line) *(1/4)
+    porog = int(int(line) *(1/4))
     while line !="":
         line = file.readline().strip()
         if line !="":
@@ -50,51 +50,33 @@ with open("26.txt") as file:
                         plus_balance+=i
 
                         quest_len+=1
-            database.append((balance,-plus_balance,-quest_len,int(ID)))
+            database.append((-balance,-plus_balance,-quest_len,int(ID)))
 
 database.sort()
-# print(int(porog))
-# print(len(database))
+'''Определите ID участника, занимающего в таблице первое место среди тех,
+кто не прошёл в следующий тур, а также количество участников, у которых
+все три показателя такие же, как у участника, занявшего в итоговой таблице
+1700 место (включая самого этого участника).'''
+
+good_result = database[porog-1]
+vezunchik_exemple = [good_result[0],good_result[1],good_result[2]]
+#print(good_result)
 
 '''В следующий тур проходят участники, занявшие места в первой четверти
 итоговой таблицы, а также те, у которых все три показателя такие же, как
 у занявшего последнее место в первой четверти таблицы.'''
 
 
-good = database[int(porog)]
-
-
-''' ...а также количество участников, у которых
-все три показателя такие же, как у участника, занявшего в итоговой таблице
-1700 место (включая самого этого участника).'''
-pokazatels = [database[1700-1][0],database[1700-1][1],database[1700-1][2]]
-count = 0
-for check_user in database:
-    one,two,three,idd = check_user
-    test = [one,two,three]
-    if test == pokazatels:
-        count+=1
-
-
-
-
-
-
-
-
-
-
-
-
-for i in range(int(porog),-1,-1):
-    database.pop(i)
-
-index = 0
-while [database[index][0],database[index][1],database[index][2]] == [good[0],good[1],good[2]]:
-    database.pop(index)
-
-'''Определите ID участника, занимающего в таблице первое место среди тех,
-кто не прошёл в следующий тур,...'''
-
-ID_ans = database[0][3]
-print(ID_ans,count)
+for i in range(porog-1,len(database)):
+    if [database[i][0], database[i][1],database[i][2]]== vezunchik_exemple:
+        None
+    else:
+        nevezunchik_id = database[i][3]
+        break
+c = 0
+ysl_2 = database[1700-1]
+ysl_2_exemple = [ysl_2[0],ysl_2[1],ysl_2[2]]
+for t in database:
+    if ysl_2_exemple == [t[0],t[1],t[2]]:
+        c+=1
+print(nevezunchik_id,c)
