@@ -5,6 +5,7 @@
 истинно (т.е. принимает значение 1) при любом значении переменной x'''
 
 
+#x ∈ Q) → (¬(x ∈ P) → ((¬(x ∈ R) ∧ ¬(x ∈ A)) → ¬(x ∈ Q)))
 
 def Q(x):
     return 18<=x<=91
@@ -17,19 +18,18 @@ for a1 in range(0,150):
     for a2 in range(a1+1, a1+150):
         FLAG = True
         x =0
-        while x >=300:
+        while x <=300.0:
             #if (Q(x)) <= (not((P(x))) <=((not((R(x))) and (not((a1<= x <=a2)))) <= (not(Q(x))))):
-            if (Q(x)) <= (not(P(x)) <= ((not(R(x)) and (not(a1<= x <=a2))) <= (not(Q(x))))):
+            if (Q(x)) <= ((not(P(x))) <= (((not(R(x))) and (not(a1<=x<=a2)))   <= (not(Q(x)))        )):
                 None
             else:
                 FLAG = False
                 break
-            x+= 1
+            x+= 0.5
         if FLAG:
             anns.append(a2-a1)
 anns.sort()
 
-#Вроде как всё хорошо
 
 #Для красоты:
 #print(anns)

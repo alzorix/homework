@@ -4,24 +4,11 @@
 Найдите все такие числа N, что 110 250 000 ≤ N ≤ 110 300 000, а десятичная
 запись числа M (N) заканчивается на 1002.
 В ответе перечислите все найденные числа N в порядке возрастания.'''
-def OTAs(num): #простые множители
-    F = list()
-    q = 2
-    while q**2 <= num:
-        if num % q == 0:
-            F.append(q)
-            num = num//q
-        else:
-            q +=1
-    F.append(num)
-
-    return F
-
-#Забыл функцию,это моя реализация по памяти:
+import math
 def delitels(number):
-    end = number //2
+    end = math.sqrt(number)
     delitel = list()
-    for i in range(end+1,1,-1):
+    for i in range(int(end)+1,1,-1):
         if number% i ==0:
             delitel.append(i)
         if len(delitel) >=2:
@@ -31,37 +18,25 @@ def delitels(number):
     return 0
 lim = list()
 for N in range(110_250_000, 110_300_001):
-    # S = delitels(N)
-    # if S:
-    #     if len(S) >2:
-    #         print("ERROR")
-    #     else:
-    #         M = sum(S)
-    #         #print(str(M)[-4::])
-    #         if str(M)[-4::] == "1002":
-    #             print(M)
-    S = OTAs(N)
+    S = delitels(N)
     if S:
         if len(S)>=2:
             S.sort()
             M = S[-1]+S[-2]
-            #print(str(M)[-4::])
             if len(str(M)) >= 4: # По уму стоит проверить на всякий случай
                 if str(M)[-4::] == "1002":
                     lim.append(N)
 lim.sort()
 for i in lim:
     print(i)
-#
-# 110253248
-# 110256430
-# 110261942
-# 110271001
-# 110273085
-# 110275397
-# 110281591
-# 110281994
-# 110284534
-# 110285355
-# 110289512
-# 110293385
+#110251396
+# 110252732
+# 110259245
+# 110259412
+# 110260915
+# 110269265
+# 110272772
+# 110275444
+# 110279285
+# 110279452
+# 110288804
