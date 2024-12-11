@@ -18,6 +18,6 @@ for a_start in range(-10,400):
                 Flag = False
             x +=0.5 #x +=1
         if Flag:
-            a.add(a_end - a_start + 1)
+            a.add(a_end - a_start)
 print(a)
 #133 либо 132 с  x +=1
