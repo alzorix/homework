@@ -5,7 +5,8 @@ F(n) = F(n–1) – 2·G(n–1), при n >=2
 G(n) = F(n–1) + G(n–1) + n, при n >=2
 
 Чему равна сумма цифр величины G(36)? '''
-
+from  functools import lru_cache
+@lru_cache()
 def F(n):
     if n ==1:
         return 1
@@ -14,6 +15,7 @@ def F(n):
     else:
         print("ERR")
         exit()
+@lru_cache()
 def G(n):
     if n ==1:
         return 1
