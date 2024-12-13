@@ -1,5 +1,5 @@
 #(x → (y → z)) ∧ (y → (z ≡ ¬w))1
-
+#Проверено
 print("w,z,y,x")
 for x in range(2):
     for y in range(2):
@@ -9,4 +9,4 @@ for x in range(2):
                     None
                 else:
                     print(w,z,y,x)
-
+#w,z,y,x

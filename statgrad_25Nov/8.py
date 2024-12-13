@@ -4,7 +4,7 @@
 
 from  itertools import product
 
-
+# Решено на занятии
 kolvo:int = 0
 
 for i in product("01A",repeat =8 ):

@@ -4,18 +4,21 @@
 Найдите все такие числа N, что 110 250 000 ≤ N ≤ 110 300 000, а десятичная
 запись числа M (N) заканчивается на 1002.
 В ответе перечислите все найденные числа N в порядке возрастания.'''
-import math
-def delitels(number):
-    end = math.sqrt(number)
-    delitel = list()
-    for i in range(int(end)+1,1,-1):
-        if number% i ==0:
-            delitel.append(i)
-        if len(delitel) >=2:
-            return delitel
-    if len(delitel) >= 2: # Если вдруг каким-либо образом получится больше двух,всё равно вернуть список
-        return delitel
-    return 0
+from math import sqrt
+
+
+def delitels(num):
+    D = list()
+    snum = int(sqrt(num))
+    for i in range(1,snum+1):
+        if num % i == 0:
+            D.append(i)
+            if num//i != i:
+                D.append(num //i)
+    D.sort()
+    return D
+
+
 lim = list()
 for N in range(110_250_000, 110_300_001):
     S = delitels(N)
@@ -29,14 +32,7 @@ for N in range(110_250_000, 110_300_001):
 lim.sort()
 for i in lim:
     print(i)
-#110251396
-# 110252732
-# 110259245
-# 110259412
-# 110260915
-# 110269265
-# 110272772
-# 110275444
-# 110279285
-# 110279452
-# 110288804
+#110250835
+#110260668
+#110275835
+#110280668
