@@ -67,7 +67,7 @@ vezunchik_exemple = [good_result[0],good_result[1],good_result[2]]
 
 
 #, а также те, у которых все три показателя такие же, как у занявшего последнее место в первой четверти таблицы.
-for i in range(porog-3,len(database)):
+for i in range(porog-1,len(database)):
     if [database[i][0], database[i][1],database[i][2]]== vezunchik_exemple:
         None
     else: # Результаты не проходные, он уже в тур не прошёл
