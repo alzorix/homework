@@ -6,31 +6,65 @@
 
 
 #x ∈ Q) → (¬(x ∈ P) → ((¬(x ∈ R) ∧ ¬(x ∈ A)) → ¬(x ∈ Q)))
-
-def Q(x):
+#Проверено, ошибок НЕ нашёл.
+def Q(x): #Верно
     return 18<=x<=91
-def P(x):
+def P(x):#Верно
     return 3<=x<=43
 def R(x):
-    return 72<=x<=115
+    return 72<=x<=115#Верно
 anns = list()
-for a1 in range(0,150):
-    for a2 in range(a1+1, a1+150):
+for a1 in range(-300,500):
+    for a2 in range(a1+1, a1+300):
         FLAG = True
-        x =0
-        while x <=300.0:
+        x =-300
+        while x <300:
             #if (Q(x)) <= (not((P(x))) <=((not((R(x))) and (not((a1<= x <=a2)))) <= (not(Q(x))))):
-            if (Q(x)) <= ((not(P(x))) <= (((not(R(x))) and (not(a1<=x<=a2)))   <= (not(Q(x)))        )):
+            if (Q(x)) <= (   (not(P(x))) <= (   (   (not(R(x))) and (not(a1<=x<=a2))   )   <= (  not(Q(x))  )        )): #Проверил и переписал несколько раз
+
                 None
             else:
                 FLAG = False
                 break
+
             x+= 0.5
         if FLAG:
             anns.append(a2-a1)
+
 anns.sort()
 
 
-#Для красоты:
-#print(anns)
+
 print(min(anns))
+#29
+
+
+#Другая подобная задача: Разницы не увидел
+'''(№ 6114) (А. Богданов) На числовой прямой даны два отрезка: B = [23; 37] и C = [41; 73]. Укажите наименьшую длину такого отрезка А,
+ для которого логическое выражение
+
+¬((¬(x ∈ B) → (x ∈ C)) → (x ∈ A))
+
+тождественно ложно, т. е. принимает значение 0 при любом значении переменной x. 
+
+def B(x):
+    return 23<=x<=37
+def C(x):
+    return  41<=x<=73
+a = list()
+for a1 in range(1,999):
+    for a2 in range(a1+1,999):
+        FLAG = 0
+        x = -300
+        while x<300:
+            x = x + 0.5
+            if not(not(( (not(B(x))) <= (C(x))) <= (a1<=x<=a2))):
+                None
+            else:
+                FLAG +=1
+                break
+        if FLAG ==0:
+            a.append(a2-a1)
+print(min(a))
+
+'''
