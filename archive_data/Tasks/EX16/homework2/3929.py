@@ -26,3 +26,4 @@ for i in range(10,100):
     c+=G(i)
 
 print( c)
+#450

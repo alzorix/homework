@@ -21,3 +21,4 @@ for n in range(1,1001):
         #print(F(n),str(F(n)).count("1"))
         c+=1
 print(c)
+#384

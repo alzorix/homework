@@ -27,3 +27,4 @@ def G(n):
         return F(n + 1) - G(n - 1)
 
 print(G(120))
+#118

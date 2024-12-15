@@ -1,4 +1,4 @@
-with open("EX24/homework5/files/24-299.txt") as file:
+with open("files/24-299.txt") as file:
     line = file.readline().strip()
     smart_start = 0
     max_sequence_char = 0
