@@ -10,3 +10,4 @@ for n in range(1,7):
 for n in range(7,2025):
     F[n] = n+1 + F[n-2]
 print(F[2024] - F[2020])
+#4048

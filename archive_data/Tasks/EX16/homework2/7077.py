@@ -20,3 +20,4 @@ for i in range(0,99):
         if s >0:
             c+=1
 print(c)
+#12
