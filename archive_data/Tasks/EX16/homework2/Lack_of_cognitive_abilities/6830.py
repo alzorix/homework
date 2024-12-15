@@ -25,18 +25,20 @@ F(n) = F(n // 2)  + F(n % 2), если n ≥ 2.
 #         c+=1
 # print(c)
 
-from  functools import lru_cache
-@lru_cache()
-def F(n):
-    if n<2:
-        return n
-    else:
-        return F(n // 2) + F(n % 2)
-c=0
-for n in range(1,2**30):
-    try:
-        if F(n) ==27:
-            c+=1
-    except:
-        None
-print(c) # По обычному тоже не работает
+
+# #Ленивый способ решения ( ну очень долгий перебор)
+# from  functools import lru_cache
+# @lru_cache()
+# def F(n):
+#     if n<2:
+#         return n
+#     else:
+#         return F(n // 2) + F(n % 2)
+# c=0
+# for n in range(1,2**30):
+#     try:
+#         if F(n) ==27:
+#             c+=1
+#     except:
+#         None
+# print(c) # По обычному тоже не работает
