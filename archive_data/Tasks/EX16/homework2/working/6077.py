@@ -17,9 +17,32 @@ def F(a,b):
             return F(a-1,b)+b
         else:
             return F(a,b-1)+a
-c =0
-for a in range(0,10000):
-    for b in range(0,10000):
-        if F(a,b) == 18522000:
+
+for a in range(0,10):
+    for b in range(0,10):
+        print(a,b, F(a,b) )
+#делаем вывод,что тут цифры просто перемножаются
+
+
+# c =0
+# for a in range(0,18522000):
+#     F = False
+#     for b in range(0,18522000):
+#         if a * b ==18522000:
+#             F= True
+#             break
+#     if F:
+#         c+=1
+# #делаем вывод,что тут цифры просто перемножаются
+# print(c)
+
+from math import sqrt
+
+def dell(n):
+    c = 0
+    for x in range(1,n+1):
+        if n % x ==0:
             c+=1
-print(c)
+    return c
+print(dell(18522000))
+#320

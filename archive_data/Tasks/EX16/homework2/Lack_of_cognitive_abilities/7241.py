@@ -2,7 +2,7 @@
 
 F(n) = 0, если n = 0,
 F(n) = F(n // 10) + n % 10, если n > 0 и n чётно;
-F(n) = , если n > 0 и n нечётно.
+F(n) = F(n // 10), если n > 0 и n нечётно.
 
 Определите количество значений n, таких что 109 ≤ n ≤ 6·109, для которых F(n) = 2. '''
 from functools import lru_cache
@@ -17,8 +17,10 @@ def F(n):
             return F(n // 10) + n % 10
         else:
             return F(n // 10)
-c=0
-for n in range(10**9+1,6*10**9):
-    if F(n) == 2:
-        c+=1
-print(c)
+for i in range(100):
+    if F(i) == 2:
+        print(i,F(i),F(i // 10), i % 10)
+# c=0
+# for n in range(10**9+1,6*10**9):
+#     if F(n) == 2:
+#         c+=1

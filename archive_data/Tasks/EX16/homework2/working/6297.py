@@ -8,8 +8,7 @@ F(a, b) = F(b, a), если a < b.
 
 
 Показать ответ'''
-import sys
-sys.setrecursionlimit(900000000)
+
 from functools import lru_cache
 @lru_cache()
 def F(a,b):
@@ -22,8 +21,18 @@ def F(a,b):
     else:
         print("E")
 
-c = 0
-for n in range(100_000_000, 200_000_000):
-    if F(n,21) == 1:
-        c+=1
-print(c)
+# c=0
+# for i in range(100000003, 200000001,3):
+#     c+=1
+# for i in range(100000007, 200000001,7):
+#     c+=1
+#
+# print(100000000+1-c)
+f = 0
+for x in range(100000000,200000001):
+    if x % 7 ==0 or x % 3 ==0:
+        None
+    else:
+        f+=1
+print(f)
+#57142859

@@ -18,8 +18,15 @@ def F(n):
             return F(n // 8) + (n % 8)
         else:
             return F(n // 8)
-c=0
-for n in range(8**9+1,6*8**9):
-    if F(n) == 35:
-        c+=1
-print(c)
+# c=0
+# for n in range(8**9+1,6*8**9):
+#     if F(n) == 35:
+#         c+=1
+# print(c)
+
+# c=0
+# for n in range(100):
+#     print(n,F(n),oct(n)[2::])
+#
+#
+# print(c)
