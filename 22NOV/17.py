@@ -8,11 +8,16 @@ with open("17.txt") as file:
         data.append(int(line))
         line = file.readline().strip()
 ans = list()
+
+def T(s):
+    return s == abs(s)
 for ind in range(0,len(data)-1):
     x = data[ind]
     y = data[ind + 1]
-    if x % 2 ==0 or y % 2 ==0:
+
+    if T(x) or T(y): #Проверял зачем-то на чётность
         if x + y < c:
             ans.append(x**2+y**2)
 print(len(ans),max(ans))
-#5331 195643981
+#4706 195643981
+

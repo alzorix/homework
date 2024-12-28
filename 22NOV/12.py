@@ -10,3 +10,6 @@ while nasloh(s,"22222") or nasloh(s,"9999"):
         s = zamenit(s,"9999","2")
 
 print(136 - s.count("9"))
+#134
+
+# Ошибок не обнаружено

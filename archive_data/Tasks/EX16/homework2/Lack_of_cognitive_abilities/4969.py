@@ -20,6 +20,8 @@ c = 0
 for n in range(1,1_000):
 
     if F(n) ==7:
-        print(n, F(n))
+        print(n, F(n),bin(n)[2::])
         c+=1
 print(c)
+
+from math import

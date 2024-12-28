@@ -1,18 +1,7 @@
-# s = 2025
+
 ans = list()
-# from fnmatch import fnmatch
-# while s <= 10**10:
-#     if fnmatch(str(s),"21?5846*?"):
-#         ans.append((s,s//2025))
-#     s+=1
-#
-# ans.sort()
-#
-# for n in ans:
-#     s,r = n
-#     print(s,r)
 
-
+print(str(10**10).count("0"))
 
 '''6 чисел и 4 своб членов'''
 
@@ -24,6 +13,7 @@ for i in product("0123456789",repeat = 2):
     alfabet.append("".join(i))
 for i in product("0123456789",repeat = 3):
     alfabet.append("".join(i))
+
 
 a_alfabet = list()
 
@@ -44,3 +34,9 @@ for n in ans:
     s,r = n
     print(s,r)
 
+#2105846100 1039924
+# 2135846475 1054739
+# 2165846850 1069554
+# 2175846300 1074492
+
+# Ошибок не обнаружено
