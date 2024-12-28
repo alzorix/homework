@@ -9,6 +9,9 @@ from functools import lru_cache
 
 
 
+
+#Зависмости не нашёл
+
 @lru_cache
 def F(n):
     if n == 0:
@@ -18,7 +21,7 @@ def F(n):
     else:
         return F(n // 2)
 c = 0
-for n in range(1,500_000_000):
-    if F(n) == 4:
-        c+=1
+for n in range(1,100):
+    print(n,F(n))
+
 print(c)

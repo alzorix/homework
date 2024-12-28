@@ -6,6 +6,7 @@ F(n) = F(n // 2) в остальных случаях
 
 Здесь // означает деление нацело. Определите количество значений n на отрезке [1, 1 000 000 000], для которых F(n) = 7. '''
 from functools import lru_cache
+#Зависмости не нашёл
 @lru_cache()
 def F(n):
     if n == 0:
@@ -16,7 +17,9 @@ def F(n):
         else:
             return F(n//2)
 c = 0
-for n in range(1,1_000_000_000):
+for n in range(1,1_000):
+
     if F(n) ==7:
+        print(n, F(n))
         c+=1
 print(c)

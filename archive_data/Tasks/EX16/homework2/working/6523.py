@@ -14,8 +14,11 @@ def check(n):
     else:
         s = n % 2  + 10* check(n//2)
         return s
-c = 0
-for i in range(1,100000):
-    if check(i) == 100000100001000100101:
-        c+=1
-print(c)
+
+# for i in range(1,100):
+#     print(i,check(i),bin(i)[2::])
+
+#Тут сразу видно
+
+print(int("100000100001000100101",2))
+#1065509
