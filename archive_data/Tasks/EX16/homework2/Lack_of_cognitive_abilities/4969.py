@@ -16,6 +16,8 @@ def F(n):
             return 1 + F(n / 2)
         else:
             return F(n//2)
+
+
 c = 0
 for n in range(1,1_000):
 
@@ -24,4 +26,4 @@ for n in range(1,1_000):
         c+=1
 print(c)
 
-from math import
+

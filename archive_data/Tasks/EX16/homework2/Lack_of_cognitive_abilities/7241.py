@@ -17,10 +17,11 @@ def F(n):
             return F(n // 10) + n % 10
         else:
             return F(n // 10)
-for i in range(100):
-    if F(i) == 2:
-        print(i,F(i),F(i // 10), i % 10)
-# c=0
+for i in range(10000):
+    if F(i) == 2 and str(i).count("0") >1:
+        print(i,F(i))
+c=0
 # for n in range(10**9+1,6*10**9):
-#     if F(n) == 2:
-#         c+=1
+# #     if str(n).count("2") == 1:
+# # #         c+=1
+print(6**9 + 3*6**8 *9)

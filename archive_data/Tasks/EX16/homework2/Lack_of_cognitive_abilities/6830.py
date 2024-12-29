@@ -6,39 +6,25 @@ F(n) = F(n // 2)  + F(n % 2), если n ≥ 2.
 
 Определите количество значений n < 2^30, для которых функция F(n) = 27. '''
 #
-F = list()
-F[1] = 1
-F[0] = 0 # n - натуральное число согласно условию,НО 2 % 2 =0. Если мы исключаем все двойки,то n//2 будет выводить чётное число и выбивать ошибку.
-# Если убрать и (n//2)% 2 == 0,то  5 будет выдавать ошибку. Если переберать с 0,то перебор очень долгий
-
-for n in range(2,2**30):
-    s = n
-    if s % 2 != 0:
-        F[n] = (F[n//2] + F[n% 2])
 
 
 
-print("90%")
-c = 0
-for i in F.items():
-    if i == 27:
-        c+=1
-print(c)
-
-
-# #Ленивый способ решения ( ну очень долгий перебор)
-# from  functools import lru_cache
-# @lru_cache()
-# def F(n):
-#     if n<2:
-#         return n
-#     else:
-#         return F(n // 2) + F(n % 2)
-# c=0
-# for n in range(1,2**30):
-#     try:
-#         if F(n) ==27:
-#             c+=1
-#     except:
-#         None
-# print(c) # По обычному тоже не работает
+def F(n):
+    if n<2:
+        return n
+    else:
+        return F(n // 2) + F(n % 2)
+for x in range(100):
+    print(x,bin(x)[2::],F(x))
+#
+# print(bin(2**30)[2::])
+#
+# print(int("1"*27,2))
+# c = 0
+# for x in range(134217727,2**30):
+#     if bin(x)[2::].count("1") == 27:
+#         c+=1
+# print(c)
+from math import factorial
+#
+print(factorial(30)/(factorial(27) * factorial(3)))
