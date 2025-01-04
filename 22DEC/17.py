@@ -10,7 +10,8 @@ with open("17.txt") as file:
 ans = list()
 
 def T(s):
-    return s == abs(s)
+    return s >0 # Проверял модулем,хех. 0 Никто не отменял!
+
 for ind in range(0,len(data)-1):
     x = data[ind]
     y = data[ind + 1]
