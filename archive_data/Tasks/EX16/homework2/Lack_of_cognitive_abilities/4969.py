@@ -16,14 +16,9 @@ def F(n):
             return 1 + F(n / 2)
         else:
             return F(n//2)
-
-
 c = 0
-for n in range(1,1_000):
+for n in range(1,1_000_000_001):
 
-    if F(n) ==7:
-        print(n, F(n),bin(n)[2::])
-        c+=1
+    if F(n)==7:
+            c+=1
 print(c)
-
-
