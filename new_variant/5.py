@@ -7,10 +7,10 @@ def toThree(num):
     return "".join(F)
 
 ans = list()
-for N in range(1,1000):
+for N in range(1,100000):
     threeN = toThree(N)
     if N % 3 ==0:
-        threeN = threeN + threeN[-3::]
+        threeN = threeN + threeN[-2::]
     else:
         ss = 0
         for x in threeN:
