@@ -6,24 +6,8 @@ with open("7497") as file:
     line = file.readline().strip()
     file.close()
 
-# line = line.replace("7","1")
-# line = line.replace("8","1")
-# line = line.replace("9","1")
-
 line = line.replace("-","*")
 
-def ysl(num:str):
-    last = -1
-    for n in num:
-        if last == -1:
-            last = n
-        else:
-            if last <= n:
-                None
-            else:
-                #print(num)
-                return False
-    return True
 
 line = line.split("*")
 print(line)
@@ -31,9 +15,9 @@ print(line)
 c = 0
 local_c=0
 for candidat in line:
-    if ysl(candidat):
 
-     if candidat != "" and (candidat[0] != "0" or candidat == "0"):
+
+     if candidat != "" and (candidat[0] != "0"):
 
             local_c +=len(candidat) +1
             c = max(local_c - 1, c)
@@ -52,5 +36,6 @@ for candidat in line:
 print(c)
 
 
+#177
 
 
