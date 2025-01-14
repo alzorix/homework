@@ -20,4 +20,4 @@ for N in range(1,100000):
     if R > 220 and R %2 ==0:
         ans.append(R)
 print(min(ans))
-#230
+#222

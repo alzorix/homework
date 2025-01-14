@@ -2,6 +2,7 @@
 
 
 for A in range(1,10000):
+    A = 54
     F = True
     x = -300
 
@@ -11,10 +12,12 @@ for A in range(1,10000):
             if (x - 3*y <A) or (y>400) or (x>56):
                 None
             else:
+                print(x,y,)
                 F = False
                 break
             y+=0.5
         if not(F):
+            print(x, y, )
             break
         x+=0.5
     if F:

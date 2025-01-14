@@ -28,4 +28,5 @@ for index in range(len(data)-2):
         if not(  x> max_ysl ):
             ans.append(x)
 print(len(ans),min(ans))
+#92 838850571
 
