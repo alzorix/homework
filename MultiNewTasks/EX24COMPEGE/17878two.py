@@ -77,6 +77,7 @@ for global_line in line_task: # берём условную -0-010110
     # имеем 0 , 010110
     local_posl = 0
 
+
     for line in local_lines:
 
 
