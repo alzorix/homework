@@ -81,7 +81,7 @@ for global_line in line_task: # берём условную -0-010110
     for line in local_lines:
 
 
-            if line != "" and (line[0] != "0"):
+            if line != "" and (line[0] != "0"  or line == "0"):
                 status,start,end,max_len = ysl(line)
                 if status == True:
 
