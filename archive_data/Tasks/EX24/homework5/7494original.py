@@ -15,9 +15,7 @@ with open("files/24-295.txt") as file:
             smart_start+=1
 
         if DE <241:
-            # if line[i+1] == "D":
-            #     max_sequence_char = max(max_sequence_char,i+1 - smart_start+1)
-            # else:
+
                 max_sequence_char = max(max_sequence_char, i +1 - smart_start + 1)
     print(max_sequence_char)
 
