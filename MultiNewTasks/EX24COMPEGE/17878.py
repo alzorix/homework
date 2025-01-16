@@ -11,10 +11,6 @@
 
 
 
-'''Номер 17878 очень похож на тот, который мы разбирали, внимательно пересмотри решение и попробуй найти ошибки. 
-число 0 не имеет знака - это просто то, что не должно быть записано -0, но в этом задании таких случаев и не может получиться, так как ты все равно все - заменяешь на *. 
-а если бы в выражении разрешалось бы использовать отрицательные числа, было бы другое дело.
-'''
 with open("24_17878.txt") as f:
     line = f.readline().strip()
 
@@ -24,7 +20,7 @@ line = line.replace("8","1")
 line = line.replace("9","1")
 line = line.replace("-0","#")
 
-#line = line.replace("-","*")
+line = line.replace("-","*")
 
 line = line.split("*")
 #print(line)
@@ -32,7 +28,13 @@ line = line.split("*")
 mp = 0
 lp = 0
 
-def ysl(num:str):
+def ysl(num:str): #Возвращает:
+
+                   #(False - Присутствие или остутствие # в строке
+                   # ind[0] - количество цифр до #
+                   # len(temp) - ind[-1] - количество цифр после #
+                   # max(maxx) - максимально количество цифр между # в выражении
+
     if "#" in num:
         temp = list()
         ind = list()
@@ -58,10 +60,11 @@ def ysl(num:str):
 
         ind.sort()
         if len(maxx) != 0:
-            return (False,ind[0],len(temp) - ind[-1],max(maxx)  )
+            return (False,ind[0],len(temp) - ind[-1] - 1,max(maxx)-1  )
         else:
-            return (False,ind[0],len(temp) - ind[-1],0 )#Не забываем,что под # -0,а 0*223 может быть
+            return (False,ind[0],len(temp) - ind[-1] - 1,0 )
     return (True,0,0,0)
+
 
 
 
@@ -77,12 +80,12 @@ for c_l in line:
             lp += start
             mp = max(mp, lp)
 
-            lp = end
-            mp = max(mp, lp)
+            lp = end+1
+            mp = max(mp, lp-1)
 
             mp = max(mp, maxx)
 
-    elif c_l !="" and c_l[0] !="0":
+    elif c_l !="" and c_l[0] =="0":
         Q,start,end,maxx = ysl(c_l)
         if Q:
             mp = max(mp,lp+1)
@@ -99,7 +102,13 @@ for c_l in line:
             mp = max(mp,lp+1)
 
             nice_index = c_l.find("1")
+
             if nice_index > -1 and nice_index > start:
+
+
+
+
+
                 lp = len(c_l[nice_index::]) +1
                 mp = max(mp,lp-1)
             elif nice_index > -1 and nice_index < start:
@@ -120,6 +129,11 @@ for c_l in line:
     else:
         lp = 0
 print(mp)
-print(ysl("100#00#003")) #Проверка на правильность работы функции (False, 3, 4, 3)
+print(ysl("100#0#23423411#01113")) #Проверка на правильность работы функции
+
+
+# 133
 
 #Не получилось
+
+

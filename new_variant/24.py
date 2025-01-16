@@ -19,6 +19,7 @@ with open("24.txt") as file:
             max_line_dlina = max(max_line_dlina,i +1 - smart_start + 1)
 print(max_line_dlina)
 
+#переделанный 7949
 
 with open("24.txt") as file:
     line = file.readline().strip()
@@ -52,3 +53,5 @@ print(max_sequence_char)
 
 # 2377
 # 2377
+
+# Вроде должна работать :/
