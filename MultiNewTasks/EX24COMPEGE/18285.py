@@ -25,37 +25,41 @@ g_line = g_line.replace("9","1")
 
 
 g_line = g_line.replace("+","*")
-g_line = g_line.split("*0*")
-L = list()
-for x in g_line:
-    s = x.split("*")
-    #print(s)
-    for f in s:
-        L.append(f)
-g_line = L
+
+g_line = g_line.split("*")
 
 
 
 
 
-global_int = 0
-local_int = 0
+normal_int_global = 0
+normal_int = 0
 
 for line in g_line:
-    if line != "" and (line == "0" or line[0] != "0"):
-        local_int += len(line)+1
-        global_int = max(global_int,local_int-1)
-    elif line != "" and line[0] == "0":
-        global_int = max(global_int, local_int + 1)
-        r = line.find("1")
-        if r > -1:
-            local_int = len(line[r::]) +1
-            global_int = max(global_int, local_int - 1)
-        else:
-            local_int =2
-            global_int = max(global_int, local_int - 1)
-    else:
-        local_int =0
 
-print(global_int)
-#Неверно
+    if line != "" and line[0] != "0":
+        normal_int +=1 # Если число нормальное, прибавляем 1
+
+        normal_int_global = max(normal_int,normal_int_global)
+        #print(normal_int_global)
+    elif line != "" and line[0] == "0":
+        normal_int_global = max(normal_int,normal_int_global)
+
+
+        r = line.find("1")
+
+
+
+        if r > -1:
+            normal_int = 1    # Так как есть проблемы,сбрасываем счётчик с учётом обрубка нормального числа
+            normal_int_global = max(normal_int, normal_int_global)
+
+        else:
+            normal_int = 0 #Если обрубка нет,то сбрасываем, так как числа должны быть положительными
+
+    else:
+        normal_int = 0 #Нет числа,нет и последовательности
+
+
+print(normal_int_global)
+#Всё работает - 44
