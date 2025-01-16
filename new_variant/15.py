@@ -2,24 +2,22 @@
 
 
 for A in range(1,10000):
-    A = 54
     F = True
-    x = -300
-
-    while x<=300:
-        y = -300
-        while y <=300:
+    x = 1
+    while x<=500:
+        y = 1
+        while y <=500:
             if (x - 3*y <A) or (y>400) or (x>56):
                 None
             else:
                 print(x,y,)
                 F = False
                 break
-            y+=0.5
+            y+=1
         if not(F):
-            print(x, y, )
+            print(x, y)
             break
-        x+=0.5
+        x+=1
     if F:
         print(A)
         exit()
