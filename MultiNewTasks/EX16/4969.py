@@ -32,7 +32,7 @@ from itertools import permutations
 print(len(bin(1_000_000_000)[2::]))
 
 
-for x in range(40):
+for x in range(40,0,-1):
     s = "1" * (x - 4) + "0000"
     if int(s,2) <= 1000000000:
 
@@ -43,9 +43,8 @@ for x in range(40):
             all_lines.add(l)
         else:
             t = l.find("1")
+            print(t)
             l = l[t::]
             all_lines.add(l)
-    else:
-        break
+     break
 print(len(all_lines))
-print(c)
