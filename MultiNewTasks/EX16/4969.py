@@ -38,13 +38,11 @@ for x in range(40,0,-1):
 
      for i in permutations(s):
         l = "".join(i)
+        #print(l)
 
-        if l[0] != "0":
-            all_lines.add(l)
-        else:
-            t = l.find("1")
-            print(t)
-            l = l[t::]
-            all_lines.add(l)
+
+        all_lines.add(l)
      break
+
 print(len(all_lines))
+#Очень долго
