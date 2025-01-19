@@ -13,7 +13,7 @@ import sys
 sys.setrecursionlimit(1000000000)
 @lru_cache
 def F(n):
-    if n == 0:
+    if n == 0: #1
         return 1
     if n> 0 and n % 2 !=0:
             return F(n//100) * F(n%10)
