@@ -9,20 +9,19 @@ F(n) = F(n // 100), если n > 0 и n чётно.
 Определите количество значений n, таких что 109 ≤ n ≤ 6·109, для которых F(n) = 21. '''
 from functools import lru_cache
 
-# import sys
-# sys.setrecursionlimit(1000000000)
-# @lru_cache
-# def F(n):
-#     if n == 0:
-#         return 1
-#     else:
-#         if n % 2 !=0:
-#             return F(n//100) * F(n%10)
-#         else:
-#             return F(n//100)
-#
-# for x in range(100):
-#     print(x,F(x))
+import sys
+sys.setrecursionlimit(1000000000)
+@lru_cache
+def F(n):
+    if n == 0:
+        return 1
+    if n> 0 and n % 2 !=0:
+            return F(n//100) * F(n%10)
+    if n> 0 and n % 2 ==0:
+            return F(n//100)
+
+for x in range(100):
+    print(x,F(x))
 
 
 

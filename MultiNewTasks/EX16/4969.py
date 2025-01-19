@@ -28,21 +28,22 @@ all_lines = set()
 
 from itertools import permutations
 
-
+f = 0
 print(len(bin(1_000_000_000)[2::]))
 
-
+from math import factorial
+c= 0
 for x in range(40,0,-1):
-    s = "1" * (x - 4) + "0000"
+    s = "1" * (x) + "0000"
     if int(s,2) <= 1000000000:
+        #1 + 4 нуля + s единицы
+        n = len(s)
+        k = n-1 #  первым у нас в любом случае идет единица,поэтому её и вычетаем разве нет?
+        c+= factorial(n)//(factorial(k) * (factorial(n-k)))
 
-     for i in permutations(s):
-        l = "".join(i)
-        #print(l)
+print(c,f)
 
 
-        all_lines.add(l)
-     break
 
 print(len(all_lines))
 #Очень долго
