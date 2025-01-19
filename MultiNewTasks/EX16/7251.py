@@ -13,23 +13,19 @@ import sys
 sys.setrecursionlimit(1000000000)
 @lru_cache
 def F(n):
-    if n == 0: #1
+    if n == 0:
         return 1
     if n> 0 and n % 2 !=0:
-            return F(n//100) * F(n%10)
+        if F(n//100) != 0:
+            return F(n//100) * (n%10)
+        else:
+            return 0
     if n> 0 and n % 2 ==0:
             return F(n//100)
 
-for x in range(100):
-    print(x,F(x))
+for x in range(100000):
+    if F(x) == 21:
+        print(x,F(x))
 
 
 
-data = dict()
-
-data[0] = 1
-for x in range(1,1000):
-    if x % 2 != 0:
-        data[x]= data[x // 100] * data[x % 10]
-    else:
-        data[x]= data[x // 100]

@@ -5,17 +5,21 @@ F(n) = n, если n < 2;
 F(n) = F(n // 2)  + F(n % 2), если n ≥ 2.
 
 Определите количество значений n < 2^30, для которых функция F(n) = 27. '''
+from functools import lru_cache
+
+
 #
 
 
-
+@lru_cache
 def F(n):
     if n<2:
         return n
     else:
         return F(n // 2) + F(n % 2)
-for x in range(100):
-    print(x,bin(x)[2::],F(x))
+for x in range(100000000):
+    if F(x) == 27:
+        print(x,bin(x)[2::],F(x))
 #
 # print(bin(2**30)[2::])
 #
