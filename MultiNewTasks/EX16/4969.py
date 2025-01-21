@@ -29,19 +29,29 @@ all_lines = set()
 from itertools import permutations
 
 f = 0
-print(len(bin(1_000_000_000)[2::]))
+#print(len(bin(1_000_000_000)[2::]))
 
 from math import factorial
 c= 0
-for x in range(40,0,-1):
-    s = "1" * (x) + "0000"
-    if int(s,2) <= 1000000000:
+for x in range(25,0,-1):
+    s = "1" * x + "0000"
         #1 + 4 нуля + s единицы
-        n = len(s)
-        k = n-1 #  первым у нас в любом случае идет единица,поэтому её и вычетаем разве нет?
-        c+= factorial(n)//(factorial(k) * (factorial(n-k)))
+    n = len(s) - 1
+    k = 4 #  первым у нас в любом случае идет единица,поэтому её и вычетаем разве нет?
+    c+= factorial(n)//(factorial(k) * (factorial(n-k)))
 
-print(c,f)
+print(bin(1_000_000_000)[2::])
+a = set()
+for x in permutations(str(26*"1" + "0000")):
+    if "".join(x)[4::] != "1111":
+      if  int("".join(x),2) < 1_000_000_000:
+
+
+        a.add(x)
+
+
+print(len(a) + c )
+
 
 
 

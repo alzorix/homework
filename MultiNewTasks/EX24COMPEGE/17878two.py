@@ -34,30 +34,7 @@ maximum_posl = 0
 
 
 def ysl(num):
-    if "-0" in num:
 
-        start_len = -1
-        max_len = -1
-        end_len = -1
-
-
-        last_bad = -1
-        for index in range(len(num)-1):
-            if num[index] + num[index+1] == "-0":
-                if last_bad == -1:
-                    last_bad = index
-                    start_len = index
-                else:
-                    max_len = max(max_len, index-last_bad+1)
-
-                    end_len = len(num) - (index+1) -1
-        return (False,start_len,end_len,max_len)
-
-
-
-
-
-    else:
         return (True,0,0,0)
 
 
