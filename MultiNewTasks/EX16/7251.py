@@ -13,19 +13,24 @@ import sys
 sys.setrecursionlimit(1000000000)
 @lru_cache
 def F(n):
-    if n == 0:
+    if n == 0: #1
         return 1
     if n> 0 and n % 2 !=0:
-        if F(n//100) != 0:
             return F(n//100) * (n%10)
-        else:
-            return 0
     if n> 0 and n % 2 ==0:
             return F(n//100)
 
-for x in range(100000):
-    if F(x) == 21:
-        print(x,F(x))
+for x in range(10**9,6*10**9):
+  if F(x) == 21 :
+    s = 1
+    for z in str(x):
+        s*= int(z)
+    print(x,F(x)) # только каждая 1...3...5 цифра умножается, если она нечетная
 
+print(len(str(10**9))) #10 символов => последняя цифра роли не играет
+
+print(6 * 10**4 * 1 * 1 * 6**3)
+# (1,2,3,4,5,6) - начало * (1234567890) - все четные по счёту числа * 1 (3) * 1(7) - нужные нам числа
+# * 6**3 (124680)
 
 

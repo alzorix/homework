@@ -45,5 +45,3 @@ print(c,f)
 
 
 
-print(len(all_lines))
-#Очень долго
