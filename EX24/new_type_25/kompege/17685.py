@@ -33,3 +33,4 @@ for local_line in line.split("#"):
                         zero_true_max = max(zero_true_max,len(line_perebor))
 print(zero_true_max)
 
+#169

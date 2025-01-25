@@ -12,10 +12,12 @@ with open("7966") as f:
 temp = list()
 true_alfabet = "+*012"
 for src_number in src_line:
+
     if src_number in true_alfabet:
         temp.append(src_number)
     else:
         temp.append("#")
 global_line = "".join(temp)
+print(global_line)
 global_line = global_line.split("#")
 print(len(max(global_line)))

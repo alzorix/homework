@@ -17,7 +17,6 @@ line = line.replace("**","!")
 maxx_true_digital = 0
 
 for i in line.split("!"):
-    print(i)
     if len(i) > maxx_true_digital:
         for sx in range(len(i)-1):
             if i[sx] != "+" and  i[sx] != "*" and not (i[sx] == "0" and i[sx + 1].isdigit()):
