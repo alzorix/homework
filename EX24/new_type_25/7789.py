@@ -67,5 +67,4 @@ for AFD_line in line:
         Last_nice_c = l_c +3
 
 print(c)
-
-#Во всяком случае,ошибка точно есть,вопрос ГДЕ
+#81 :/
