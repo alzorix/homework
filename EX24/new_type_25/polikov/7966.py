@@ -20,4 +20,6 @@ for src_number in src_line:
 global_line = "".join(temp)
 print(global_line)
 global_line = global_line.split("#")
-print(len(max(global_line)))
+print(global_line)
+
+#Дописать
