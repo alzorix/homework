@@ -43,10 +43,14 @@ F = list()
 
 maximum_posl = 0
 
-
+def C():
+    return input()
 
 for local_line in line:
+    local_line = C()
+
     c  = 0
+    F = True
 
     src = local_line.split("#")[0]
 
@@ -55,27 +59,21 @@ for local_line in line:
     local_posl = 0
 
     for line in clear_lines:
+        if F:
 
-        if line != "" and (line[0] != "0" or line =="0"):
+            if line != "" and (line[0] != "0" or line =="0"):
 
-            local_posl += len(line) + 1
-            maximum_posl = max(maximum_posl, local_posl - 1)
-
-
-        elif line != "" and line[0] == "0":
-            maximum_posl = max(maximum_posl, local_posl + 1)
-
-            nice_index = line.find("1")
-            if nice_index > -1:
-                local_posl = len(line[nice_index::]) + 1
+                local_posl += len(line) + 1
                 maximum_posl = max(maximum_posl, local_posl - 1)
-
             else:
-                local_posl = 2
-                maximum_posl = max(maximum_posl, local_posl - 1)
+                F = False
+
+
 
         else:
-            local_posl = 0
+            break
+    break
+
 
 print(maximum_posl)
 #163 :/
