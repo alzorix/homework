@@ -41,6 +41,8 @@ line = line.split("!")
 
 F = list()
 
+maximum_posl = 0
+
 
 
 for local_line in line:
@@ -50,9 +52,7 @@ for local_line in line:
 
     clear_lines = src.split("*")
 
-
     local_posl = 0
-    maximum_posl = 0
 
     for line in clear_lines:
 
@@ -77,7 +77,6 @@ for local_line in line:
         else:
             local_posl = 0
 
-    F.append(maximum_posl)
-print(max(F))
+print(maximum_posl)
 #163 :/
 
