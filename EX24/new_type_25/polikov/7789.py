@@ -5,66 +5,71 @@
   В записи чисел отсутствуют незначащие (ведущие) нули. В ответе укажите количество символов в найденном выражении.'''
 
 
-
-def desit_system(num:str):
-    for x in num:
-        if x in alfabet:
-            return (False,x)
-    return (True,"")
+alfabet = "1234567890!*"
 
 
-with open("7789") as file:
-    line = file.readline().strip()
 
-lenn = list() #Переворачиваем,чтобы искать было удобнее
-for x in line:
-    lenn.append(x)
-lenn.reverse()
-line = "".join(lenn)
+with open("7789") as f:
+    src_line = f.readline().strip()
+    f.close()
 
 
-line = line.replace("+","*")
-line = line.split("BC")
 
 
-alfabet = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
+src_line = src_line.replace("CB","!")
+temp = list()
+for x in src_line:
+    if x in alfabet:
+        temp.append(x)
+    else:
+        temp.append("#")
+
+join_line = "".join(temp)
+join_line = join_line.replace("**","#")
+join_line = join_line.replace("2","1")
+join_line = join_line.replace("3","1")
+join_line = join_line.replace("4","1")
+join_line = join_line.replace("5","1")
+join_line = join_line.replace("6","1")
+join_line = join_line.replace("7","1")
+join_line = join_line.replace("8","1")
+join_line = join_line.replace("9","1")
 
 
-c = 0
-Last_nice_c = 3 #Если предыдущий AFD_line не попал в else,тогда продолжаем на новой
-
-for AFD_line in line:
-    Nice_line_FLAG = True
 
 
-    local_line = AFD_line.split("*")
+line_input_src = join_line.split("!") # 0123456789#*
 
-    l_c = Last_nice_c
-    Last_nice_c = 3
+#print(line_input_src[0])
+all = 0
+for input_line in line_input_src:
+    lines_input_data = input_line.split("#")
+    input_line_from_lines = lines_input_data[-1]
+
+    infl = input_line_from_lines
+    infl = infl.split("*")
+    #print(input_line)
+    #print(input_line_from_lines)
 
 
-    for candidation_line in local_line:
+    local = 0
+    print(infl)
 
-            if candidation_line !="" and (candidation_line[-1] !="0" or candidation_line == "0"):
-                    res = desit_system(candidation_line)
-                    if res[0]:
-                        l_c+=len(candidation_line)+1
-                        c = max(c,l_c-1)
-                    else:
-                        ost = candidation_line.find(res[1])
-                        l_c+=len(candidation_line[:ost])
+    for symbols in infl:
 
-                        c = max(c,l_c)
-                        l_c = 0
-                        Nice_line_FLAG = False
-                        break
+        if symbols !="" and (symbols =="0" or symbols[0] !="0" ):
+            local+=len(symbols) +1
+
+        elif symbols !="" and symbols[0] =="0" :
+            r = symbols.rfind("1")
+            if r> 0:
+                local = len(symbols[r::]) +1
             else:
-                c = max(c, l_c-1)
-                l_c = 0
-                Nice_line_FLAG = False
-                break
-    if Nice_line_FLAG:
-        Last_nice_c = l_c +3
+                local = 2
+        else:
+            local = 0
 
-print(c)
-#81 :/
+
+    all = max(all,local-1)
+print(all)
+
