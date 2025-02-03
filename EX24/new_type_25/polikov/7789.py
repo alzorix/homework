@@ -5,7 +5,7 @@
   В записи чисел отсутствуют незначащие (ведущие) нули. В ответе укажите количество символов в найденном выражении.'''
 
 
-alfabet = "1234567890!*"
+alfabet = "1234567890!+*"
 
 
 
@@ -25,6 +25,7 @@ for x in src_line:
         temp.append("#")
 
 join_line = "".join(temp)
+join_line = join_line.replace("+","*")
 join_line = join_line.replace("**","#")
 join_line = join_line.replace("2","1")
 join_line = join_line.replace("3","1")
