@@ -12,5 +12,7 @@ for N in range(40000):
     else:
         octN = "3"+ octN[1:-1] + "3"
     R = int(octN,8)
-    ss.append(R)
+    if R<300:
+        ss.append(R)
 print(max(ss))
+#294

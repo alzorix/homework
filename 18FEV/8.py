@@ -7,3 +7,4 @@ for x in product("ГЕИНРСЯ",repeat = 6):
     if "ГИРЯ" in l:
         last = id
 print(last)
+#115381

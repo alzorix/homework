@@ -1,4 +1,4 @@
-s = 7 ** 240 + 7 ** 170 + 7**70
+s = 7 ** 270 + 7 ** 170 + 7**70
 
 def absolutesolver(x):
     F = list()
@@ -9,9 +9,11 @@ def absolutesolver(x):
     return "".join(F)
 res = list()
 for x in range(1,10000+1):
-    s  = s +x
+
+    s  = s -x
     r = absolutesolver(s)
     res.append((r.count("0"), x) )
-
+#res.sort()
 print(max(res))
+#9603
 
