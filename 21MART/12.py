@@ -3,7 +3,12 @@ def nashlos(s:str,v):
 def zamenit(s:str,v,w):
     return  s.replace(v,w)
 
-for n in range(7,101):
-    line = ">" + "0" * 19 + "1" * n
 
-# возможно листок ввиду большого перебора
+line = "1"*81
+while nashlos(line,"111") or nashlos(line,"88888"):
+        if nashlos(line,"111") :
+            line = zamenit(line,"111","88")
+        if nashlos(line,"88888") :
+            line = zamenit(line,"88888","8")
+
+print(line)

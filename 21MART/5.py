@@ -1,22 +1,12 @@
+s = list()
+for x in range(1,13):
 
+    binN = bin(x)[2::]
 
-data = list()
-for N in range(1,10000):
-    N = 9
-    octN = oct(N)[2::]
-
-    if N % 2 == 0:
-        octN= octN.replace("1","2")
-        octN= octN.replace("3","2")
-        octN= octN.replace("5","2")
-        octN= octN.replace("7","2")
+    if x % 2 ==0:
+        binN = "10"+binN
     else:
-
-        octN = "3"+octN[1:-1]+ "3"
-
-    R = int(octN,8)
-    if R <=300:
-        data.append(R)
-print(max(data))
-
-#27
+        binN = "1" + binN + "01"
+    s.append(int(binN,2))
+print(max(s))
+#109

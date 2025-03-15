@@ -1,10 +1,9 @@
-from itertools import product, repeat
-l = 0
-c=0
-for x in product("ГЕИНРСЯ",repeat=6):
+from itertools import product
+c = 0
+lss = list()
+for l in product("КОСУФ",repeat =5):
+    line = "".join(l)
     c+=1
-    line = "".join(x)
-    if "ГИРЯ"  in line:
-        l = c
-print(l)
-#115381
+    if "Ф" not in line and line.count("У") == 2:
+        lss.append(c)
+print(max(lss))
