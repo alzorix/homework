@@ -1,7 +1,7 @@
 def nashlos(s:str,v):
     return v in s
 def zamenit(s:str,v,w):
-    return  s.replace(v,w)
+    return  s.replace(v,w,1)
 
 
 line = "1"*81
