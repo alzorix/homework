@@ -13,10 +13,10 @@ def toseven(num):
     return "".join(F)
 
 for x in range(1,2031):
-    line = line - x
-    t = toseven(line)
+    gog = line - x
+    t = toseven(gog)
     data.append((t.count("0"),x))
 
 print(max(data))
-#(75, 1813)
-#1813
+#(73, 1715)
+#1715
