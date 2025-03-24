@@ -1,0 +1,39 @@
+'''(№ 7039) (М. Ишимов) В терминологии сетей TCP/IP маской сети называют двоичное число, которое показывает,
+ какая часть IP-адреса узла сети относится к адресу сети, а какая - к адресу узла в этой сети.
+  Адрес сети получается в результате применения поразрядной конъюнкции к заданному адресу узла и маске сети.
+   Сеть задана IP-адресом 154.24.165.32 и маской сети 255.255.255.224.
+    Сколько в этой сети IP-адресов,
+    для которых в двоичной записи IP-адреса суммарное количество единиц в левых двух байтах меньше суммарного количества единиц
+    в правых двух байтах? '''
+
+
+from ipaddress import ip_network
+
+net = ip_network("154.24.165.32/255.255.255.224",0)
+c = 0
+for ip in net.hosts():
+    lev1,lev2,prav1,prav2 = str(ip).split(".")
+    lev = bin(int(lev1))[2::] + bin(int(lev2))[2::]
+    prav = bin(int(prav1))[2::] + bin(int(prav2))[2::]
+
+    if lev.count("1") <prav.count("1"):
+        c+=1
+
+
+lev1,lev2,prav1,prav2 = str(net.broadcast_address).split(".")
+lev = bin(int(lev1))[2::] + bin(int(lev2))[2::]
+prav = bin(int(prav1))[2::] + bin(int(prav2))[2::]
+
+if lev.count("1") < prav.count("1"):
+    c += 1
+
+lev1, lev2, prav1, prav2 = str(min(net.hosts())-1).split(".")
+lev = bin(int(lev1))[2::] + bin(int(lev2))[2::]
+prav = bin(int(prav1))[2::] + bin(int(prav2))[2::]
+
+if lev.count("1") < prav.count("1"):
+    c += 1
+
+print(c)
+
+#26

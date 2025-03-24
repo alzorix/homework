@@ -6,41 +6,46 @@
     для которого для всех IP-адресов этой сети в двоичной записи IP-адреса суммарное количество нулей в левых двух байтах
      не больше суммарного количества нулей в правых двух байтах. '''
 
+
 from ipaddress import ip_network
 
-for A in range(256):
-    net = ip_network(f"227.31.{A}.139/255.255.255.224",0)
-    c_lev = 0
-    c_prav = 0
-    for ip in net.hosts():
-        ss = f"{ip}".split(".")
-        lev = bin(int(ss[0]))[2::] + bin(int(ss[1]))[2::]
-        prav = bin(int(ss[2]))[2::] + bin(int(ss[3]))[2::]
+for A in range(0,256):
 
-        c_lev +=lev.count("0")
-        c_prav +=prav.count("0")
+        net = ip_network(f"227.31.{A}.139/255.255.255.224",0)
+        Flag = True
 
-    ss = f"{net.broadcast_address}".split(".")
-
-    lev = bin(int(ss[0]))[2::] + bin(int(ss[1]))[2::]
-    prav = bin(int(ss[2]))[2::] + bin(int(ss[3]))[2::]
-
-    c_lev += lev.count("0")
-    c_prav += prav.count("0")
+        for ip in net.hosts():
+            lev1,lev2,prav1,prav2 = f"{ip}".split(".")
+            lev = bin(int(lev1))[2::] + bin(int(lev2))[2::]
+            prav =bin(int(prav1))[2::] + bin(int(prav2))[2::]
+            if lev.count("0")  <= prav.count("0"):
+                None
+            else:
+                Flag = False
 
 
+        ip = net.broadcast_address
+        lev1, lev2, prav1, prav2 = f"{ip}".split(".")
+        lev = bin(int(lev1))[2::] + bin(int(lev2))[2::]
+        prav = bin(int(prav1))[2::] + bin(int(prav2))[2::]
+        if lev.count("0")  <= prav.count("0"):
+            None
+        else:
+            Flag = False
+
+        ip = min(net.hosts())-1
+        # print(ip)
+        # print(lev1, lev2, prav1, prav2)
+        lev1, lev2, prav1, prav2 = f"{ip}".split(".")
+        lev = bin(int(lev1))[2::] + bin(int(lev2))[2::]
+        prav = bin(int(prav1))[2::] + bin(int(prav2))[2::]
+        if lev.count("0") <= prav.count("0"):
+            None
+        else:
+            Flag = False
 
 
+        if Flag:
+            print(A)
 
-    ss = f"{min(net.hosts()) - 1}".split(".")
-    lev = bin(int(ss[0]))[2::] + bin(int(ss[1]))[2::]
-    prav = bin(int(ss[2]))[2::] + bin(int(ss[3]))[2::]
-
-
-    c_lev += lev.count("0")
-    c_prav += prav.count("0")
-
-    if c_lev<= c_prav:
-        print(A)
-
-#В чём проблема?
+# Опять неверно
