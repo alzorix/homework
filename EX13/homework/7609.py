@@ -17,3 +17,4 @@ if f"{net.broadcast_address:b}".count("1") % 7 != 0:
     c+=1
 
 print(c)
+#772

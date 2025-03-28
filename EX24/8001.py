@@ -8,8 +8,8 @@ with open("8001") as file:
 
 clear_data = line.split("=")
 
-data = dict()
-id = 0
+data = list()
+
 send = list()
 #print(clear_data)
 
@@ -17,22 +17,25 @@ send = list()
 #Выполяем условие: последовательности вида «число1=число2=число3=...=число N», которой нет соседних знаков «=»
 
 for x in (clear_data):
+
     #print(x)
 
 
 
     if x !="":
+        if x[0] == "0":
+            print(x)
         send.append(x)
 
 
     else:
 
         if len(send)!=0:
-            data[id] = send
+            data.append(send)
             send = []
-            id += 1
+
 if len(send)!=0:
-        data[id] = send
+        data.append( send)
 
 
 
@@ -59,8 +62,9 @@ def ysl(x:str):
 
 good_ans = list()
 
-for x in data.items():
-    s = x[1]
+for x in data:
+    s = x
+
 
 
     to_ans_if_successful = sum(len(num) for num in s) + (len(s) - 1) #которой нет соседних знаков «=» /Мы их тут не учитываем

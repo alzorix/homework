@@ -14,35 +14,17 @@ for A in range(0,256):
         net = ip_network(f"227.31.{A}.139/255.255.255.224",0)
         Flag = True
 
-        for ip in net.hosts():
-            lev1,lev2,prav1,prav2 = f"{ip}".split(".")
-            lev = bin(int(lev1))[2::] + bin(int(lev2))[2::]
-            prav =bin(int(prav1))[2::] + bin(int(prav2))[2::]
+        for ip in net:
+
+
+            lev = f"{ip:b}"[:16]
+            prav = f"{ip:b}"[16:]
+
             if lev.count("0")  <= prav.count("0"):
                 None
             else:
                 Flag = False
 
-
-        ip = net.broadcast_address
-        lev1, lev2, prav1, prav2 = f"{ip}".split(".")
-        lev = bin(int(lev1))[2::] + bin(int(lev2))[2::]
-        prav = bin(int(prav1))[2::] + bin(int(prav2))[2::]
-        if lev.count("0")  <= prav.count("0"):
-            None
-        else:
-            Flag = False
-
-        ip = min(net.hosts())-1
-        # print(ip)
-        # print(lev1, lev2, prav1, prav2)
-        lev1, lev2, prav1, prav2 = f"{ip}".split(".")
-        lev = bin(int(lev1))[2::] + bin(int(lev2))[2::]
-        prav = bin(int(prav1))[2::] + bin(int(prav2))[2::]
-        if lev.count("0") <= prav.count("0"):
-            None
-        else:
-            Flag = False
 
 
         if Flag:

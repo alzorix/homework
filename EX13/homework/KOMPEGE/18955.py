@@ -12,7 +12,6 @@
 
 
 from ipaddress import ip_network as get_net
-from ipaddress import ip_address
 
 for mask in range(0,33):
     net1 = get_net(f"200.154.190.12/{mask}",0)

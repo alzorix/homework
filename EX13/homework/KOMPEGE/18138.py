@@ -40,7 +40,9 @@ for x in range(0,256):
         #Почему они иногда не совпадают? Ведь
         #Два адреса в любой подсети зарезервированы: адрес всей подсети и широковещательный адрес.
         if not(net.network_address == min(net.hosts())-1):
-            print(net.network_address , min(net.hosts())-1)
+            print(x)
+            print(net.network_address , min(net.hosts())-1,min(net.hosts()))
+        print(1)
 
 
 

@@ -18,4 +18,8 @@ if f"{net.broadcast_address:b}".count("0") > 21:
 
 if f"{min(net.hosts())-1:b}".count("0") > 21: 
     c+=1
+
+if net.network_address.count("0") > 21:
+    c+=1
+
 print(c)

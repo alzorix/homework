@@ -9,14 +9,8 @@ from ipaddress import ip_network
 
 net = ip_network("213.0.0.0/255.192.0.0",0)
 c = 0
-for ip in net.hosts():
+for ip in net:
     if "111" in f"{ip:b}":
         c+=1
-ip = net.broadcast_address
-if "111" in f"{ip:b}":
-        c+=1
 
-ip = min(net.hosts())-1
-if "111" in f"{ip:b}":
-        c+=1
 print(c)

@@ -11,7 +11,7 @@ from ipaddress import ip_network
 
 net = ip_network("154.24.165.32/255.255.255.224",0)
 c = 0
-for ip in net.hosts():
+for ip in net:
     lev1,lev2,prav1,prav2 = str(ip).split(".")
     lev = bin(int(lev1))[2::] + bin(int(lev2))[2::]
     prav = bin(int(prav1))[2::] + bin(int(prav2))[2::]
@@ -19,20 +19,6 @@ for ip in net.hosts():
     if lev.count("1") <prav.count("1"):
         c+=1
 
-
-lev1,lev2,prav1,prav2 = str(net.broadcast_address).split(".")
-lev = bin(int(lev1))[2::] + bin(int(lev2))[2::]
-prav = bin(int(prav1))[2::] + bin(int(prav2))[2::]
-
-if lev.count("1") < prav.count("1"):
-    c += 1
-
-lev1, lev2, prav1, prav2 = str(min(net.hosts())-1).split(".")
-lev = bin(int(lev1))[2::] + bin(int(lev2))[2::]
-prav = bin(int(prav1))[2::] + bin(int(prav2))[2::]
-
-if lev.count("1") < prav.count("1"):
-    c += 1
 
 print(c)
 
