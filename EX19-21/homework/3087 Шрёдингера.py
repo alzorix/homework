@@ -154,12 +154,12 @@ def F_21_3(A,B,NUM):
         B1= B//2
     if NUM % 2 == 0: # Сейчас ход ПЕТИ,но ретёрн для хода Вани
 
-        return F_21(A-1,B,NUM+1) or F_21(A,B-1,NUM+1) or F_21(A1,B,NUM+1) or F_21(A,B1,NUM+1) # может выиграть
+        return F_21_3(A-1,B,NUM+1) or F_21_3(A,B-1,NUM+1) or F_21_3(A1,B,NUM+1) or F_21_3(A,B1,NUM+1) # может выиграть
     else:
 
-        return F_21(A - 1, B, NUM + 1) and F_21(A, B - 1, NUM + 1) and F_21(A1, B, NUM + 1) and F_21(A, B1, NUM + 1) #независимо от того, как будет ходить Петя
+        return F_21_3(A - 1, B, NUM + 1) and F_21_3(A, B - 1, NUM + 1) and F_21_3(A1, B, NUM + 1) and F_21_3(A, B1, NUM + 1) #независимо от того, как будет ходить Петя
 for S in range(23,100):
     if F_21(10,S,1):
         print(S)
-print(F_21_3(10,45,1))
+print(F_21_3(10,48,1))
 
