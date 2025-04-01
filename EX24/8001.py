@@ -18,17 +18,18 @@ send = list()
 
 for x in (clear_data):
 
-    #print(x)
 
 
 
+    #Добавляем числа до тех пор, не встретим ==
     if x !="":
-        if x[0] == "0":
+        if x[0] == "0": #Посмотрел на старые задания и решил перепроверить на незначащие нули / Их тут нет
             print(x)
         send.append(x)
 
 
-    else:
+    else: # Если встретили == , то список с числами,которые принадлежат одной последовательности, добавляем в другой список
+
 
         if len(send)!=0:
             data.append(send)
@@ -39,41 +40,54 @@ if len(send)!=0:
 
 
 
+
+
+
+
+
 #print(data)
 
 #Выполяем условие: есть хотя бы одно шестизначное число, в котором все цифры стоят в порядке невозрастания
 
-
-
-def ysl(x:str):
-    x = str(abs(int(x)))
-    F = list()
-    for z in range(len(x)):
-        F.append(x[z])
-
-    F.sort()
-    return not(   "".join(F) == x          )
-    # F.sort(reverse=True)
-    # return   "".join(F) == x
+def ysl(x: str):
+    x = str(x)
+    for i in range(len(x)-1):
+        if x[i] < x[i+1]:
+            return False
+    return True
 
 
 
+def BIG_kostil(fucking_posl:list):
+    cuts = list()
+    for id in range(len(fucking_posl)):
+        if ysl(potential):
+            print(1)
 
 
-good_ans = list()
-
-for x in data:
-    s = x
 
 
 
-    to_ans_if_successful = sum(len(num) for num in s) + (len(s) - 1) #которой нет соседних знаков «=» /Мы их тут не учитываем
+
+
+good_ans = list() #Список с длинами подходящих последовательностей
+
+for s in data:
+
+
+
+
+    to_ans_if_successful = sum(len(num) for num in s) + (len(s) - 1)  #В длине учитываем и кол-во знаков = между цифрами
+
+
     TRUE = False
 
 
     for f_if in s:
         f_if= int(f_if)
-        if len(str(abs(f_if)))  == 6:
+        len_f_if = len(str(abs(f_if)))
+        f_if = str(f_if)
+        if len_f_if  == 6:
 
 
 
@@ -82,6 +96,21 @@ for x in data:
                     #print(f_if)
                     TRUE = True
                     break
+
+        elif len_f_if  > 6: # Проверка на большие числа
+            for z in range(len_f_if   -5):
+
+                potential = f_if[z:z+6]
+
+                if ysl(potential):
+                    r = BIG_kostil(s)
+                    print("блять")
+
+
+
+
+
+
 
     if TRUE:
 
