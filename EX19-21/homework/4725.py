@@ -80,7 +80,7 @@ def F_21(A,B,C,H):
     # 1 - START
     # 2 - PETYA
     # 3 - VANYA
-    if A +B +C >= 71 and H ==3 or   H == 5:
+    if A +B +C >= 71 and (H ==3 or   H == 5):
         return True
     elif  A +B +C >= 71 and H !=3 and H != 5 :
         return False
@@ -112,5 +112,6 @@ def F_21_ch(A,B,C,H):
 
 for  S in range(1,59):
     if F_21(7,5,S,1):
-        print(S,F_21_ch(7,5,S,1))
-#Второй раз я что-то делаю не так.
+        if not(F_21_ch(7,5,S,1)):
+            print(S)
+#24

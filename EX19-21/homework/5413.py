@@ -101,6 +101,7 @@ def  F_21(A,H):
 
 
 
+
 for S in range(1,130):
     if F_21(S,1):
         if not(F_21_ch(S,1)):
