@@ -45,6 +45,34 @@ for S in range(1,41):
 Найденные значения запишите в ответе в порядке возрастания.'''
 
 def F_20(A,B,H):
+    #st
+    #pet
+    #van
+    if A*B >= 123 and H == 4 :
+        return True
+    elif A*B >= 123  and H != 4   :
+        return False
+    elif A*B<123 and H == 4:
+        return False
+
+    if H % 2 ==0:
+        return F_20(A+2,B,H+1) and F_20(A,B+2,H+1) and F_20(A*2,B,H+1) and F_20(A,B*2,H+1)
+    else:
+        return F_20(A + 2, B, H + 1) or F_20(A, B + 2, H + 1) or F_20(A * 2, B, H + 1) or F_20(A, B * 2, H + 1)
+
+
+for S in range(1,41):
+    if F_20(3,S,1):
+
+            print(S)
+
+
+'''  Вопрос 3. Найдите наибольшее значение S, при котором одновременно выполняются два условия:
+– у Вани есть выигрышная стратегия, позволяющая ему выиграть первым или вторым ходом при любой игре Пети;
+– у Вани нет стратегии, которая позволит ему гарантированно выиграть первым ходом;
+– Петя может выбирать, каким ходом выиграет Ваня.'''
+
+def F_21_(A,B,H):
     if A*B >= 123 and H == 3:
         return True
     elif A*B >= 123  and H != 3:
@@ -53,9 +81,22 @@ def F_20(A,B,H):
         return False
 
     if H % 2 ==0:
-        return F_20(A+2,B,H+1) or F_20(A,B+2,H+1) or F_20(A*2,B,H+1) or F_20(A,B*2,H+1)
+        return F_21_(A+2,B,H+1) or F_21_(A,B+2,H+1) or F_21_(A*2,B,H+1) or F_21_(A,B*2,H+1)
     else:
-        return F_20(A + 2, B, H + 1) or F_20(A, B + 2, H + 1) or F_20(A * 2, B, H + 1) or F_20(A, B * 2, H + 1)
+        return F_21_(A + 2, B, H + 1) or F_21_(A, B + 2, H + 1) or F_21_(A * 2, B, H + 1) or F_21_(A, B * 2, H + 1)
+def F_21(A,B,H):
+    if A*B >= 123 and (H == 3 or H == 5):
+        return True
+    elif A*B >= 123  and H != 3 and H != 5:
+        return False
+    elif A*B<123 and H == 5:
+        return False
+
+    if H % 2 ==0:
+        return F_21(A+2,B,H+1) or F_21(A,B+2,H+1) or F_21(A*2,B,H+1) or F_21(A,B*2,H+1)
+    else:
+        return F_21(A + 2, B, H + 1) or F_21(A, B + 2, H + 1) or F_21(A * 2, B, H + 1) or F_21(A, B * 2, H + 1)
 for S in range(1,41):
-    if F_20(3,S,1):
+    if F_21(3,S,1):
         print(S)
+#38 47
