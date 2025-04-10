@@ -21,16 +21,24 @@ def F_19(A,HOD):
     #2 - Первый ход (Петя) ЧЁТ
     #3 - Первый ход Вани Нечёт
 
-    if A  >= 65 and HOD  == 3:
-        if A  >=100:
+    if A >= 65 and HOD == 3:
+        if A > 100:
             return False
         else:
             return True
 
-    elif A  >= 65 and HOD  != 3:
+    elif A >= 65 and HOD == 2:
+        if A > 100:
+            return True
+        else:
+            return False
+    elif A >= 65 and HOD <2:
         return False
-    elif A  < 65 and HOD  == 3:
+
+
+    elif A < 65 and HOD == 3:
         return False
+
 
     if HOD % 2 ==0: # Петя -> Ваня
         return F_19(A+1,HOD+1) or F_19(A*3,HOD+1) # Нам не сказано ни про ход,ни про стратегию
@@ -41,7 +49,7 @@ for S in range(1,65):
     if F_19(S,1):
         print(S)
         break
-
+#8
 print("20:")
 '''Вопрос 2. Определите два таких значения S, при которых у Пети есть выигрышная стратегия, причём одновременно выполняются два условия:
 − Петя не может выиграть за один ход;
@@ -57,8 +65,15 @@ def F_20(A, HOD):
         else:
             return True
 
-    elif A >= 65 and HOD == 2:
+    elif A >= 65 and HOD == 3:
+        if A > 100:
+            return True
+        else:
             return False
+    elif A >= 65 and HOD <3:
+        return False
+
+
     elif A < 65 and HOD == 4:
         return False
 
@@ -67,14 +82,13 @@ def F_20(A, HOD):
     if HOD % 2 == 0:  # Петя -> Ваня
         return F_20(A + 1, HOD + 1) and F_20(A * 3, HOD + 1)
     else:
-        return F_20(A + 1, HOD + 1) and F_20(A * 3, HOD + 1)
+        return F_20(A + 1, HOD + 1) or F_20(A * 3, HOD + 1)
 
 
 for S in range(1, 65):
     if F_20(S, 1):
         print(S)
 
-#Неверный ответ при любых or/ and        / Почему не знаю
 print("21:")
 '''  Вопрос 3. Найдите значение S, при которых одновременно выполняются два условия:
 – у Вани есть выигрышная стратегия, позволяющая ему выиграть первым или вторым ходом при любой игре Пети;
@@ -85,23 +99,61 @@ def F_21(A,HOD):
     #1 - начала игры
     #2 - Первый ход (Петя) ЧЁТ
     #3 - Первый ход Вани Нечёт
-
-    if A  >= 65 and (HOD  == 2 or HOD == 4):
-        if A  >=100:
+    if A >= 65 and (HOD == 3 or HOD == 5):
+        if A > 100:
             return False
         else:
             return True
 
-    elif A  >= 65 and (HOD != 2 or HOD != 4):
-        return False
-    elif A  < 65 and HOD  == 4:
+    elif A >= 65 and (HOD == 2 or HOD == 4):
+        if A > 100:
+            return True
+        else:
+            return False
+    elif A >= 65 and HOD <4:
         return False
 
+
+    elif A < 65 and HOD == 5:
+        return False
+
+
+
     if HOD % 2 ==0: # Петя -> Ваня
-        return F_21(A+1,HOD+1) and F_21(A*3,HOD+1) # Нам не сказано ни про ход,ни про стратегию
+        return F_21(A+1,HOD+1) or F_21(A*3,HOD+1) # Нам не сказано ни про ход,ни про стратегию
     else:
         return F_21(A + 1, HOD + 1) and F_21(A * 3, HOD + 1)# Нам не сказано ни про ход,ни про стратегию
 
+def F_21_(A,HOD):
+    #1 - начала игры
+    #2 - Первый ход (Петя) ЧЁТ
+    #3 - Первый ход Вани Нечёт
+    if A >= 65 and HOD == 3:
+        if A > 100:
+            return False
+        else:
+            return True
+
+    elif A >= 65 and HOD == 2:
+        if A > 100:
+            return True
+        else:
+            return False
+    elif A >= 65 and HOD <2:
+        return False
+
+
+    elif A < 65 and HOD == 3:
+        return False
+
+
+
+    if HOD % 2 ==0: # Петя -> Ваня
+        return F_21_(A+1,HOD+1) or F_21_(A*3,HOD+1) # Нам не сказано ни про ход,ни про стратегию
+    else:
+        return F_21_(A + 1, HOD + 1) and F_21_(A * 3, HOD + 1)# Нам не сказано ни про ход,ни про стратегию
+
 for S in range(1,65):
-    if F_19(S,1):
-        print(S)
+    if F_21(S,1):
+        if not(F_21_(S,1)):
+            print(S)

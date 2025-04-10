@@ -50,7 +50,7 @@ for K in range(10,1000):
         if F_19(K,K,1):
             print(K)
 
-
+#13
 print("20:")
 #   Вопрос 2. При K=13, найдите минимальное и максимальное значение S, при котором у Пети есть выигрышная стратегия,
 #   причём одновременно выполняются два условия:
@@ -97,7 +97,7 @@ for S in range(1, 1000):
                 R2.append(S)
 print(min(R2), max(R2))
 
-
+#14 27
 
 
 
@@ -105,7 +105,9 @@ print(min(R2), max(R2))
 
 print("21:")
 
-
+'''  Вопрос 3. При каком минимальном значении N для начальной пары (N;N) одновременно выполняются два условия:
+– у Вани есть выигрышная стратегия, позволяющая ему выиграть первым или вторым ходом при любой игре Пети;
+– у Вани нет стратегии, которая позволит ему гарантированно выиграть первым ходом. '''
 def F_21(A,B,HOD):
     # 1 - start
     # 2 - ход Пети
@@ -114,20 +116,18 @@ def F_21(A,B,HOD):
         return True
     elif A + B > 18 and HOD == 5:
         return False
-    elif A+B <= 18 and (HOD !=3 or HOD !=5):
+    elif A+B <= 18 and (HOD !=3 and HOD !=5):
         return False
 
 
-    if A % 2 != 0:
-        A1 = A // 2
-    else:
-        A1= A//2
+
+    A1 = A // 2
 
 
-    if B % 2 != 0:
-        B1 = B // 2
-    else:
-        B1= B//2
+
+
+
+    B1= B//2
 
     if HOD % 2 == 0: #Ход Пети,пишем Ваню
 
@@ -137,11 +137,57 @@ def F_21(A,B,HOD):
 
         return F_21(A-1,B,HOD+1) and F_21(A,B-1,HOD+1) and F_21(A1,B,HOD+1) and F_21(A,B1,HOD+1)
 
+
+
+
+
+def F_21_(A,B,HOD):
+    # 1 - start
+    # 2 - ход Пети
+    # 3 - ход Вани
+    if A+B <= 18 and (HOD ==3):
+        return True
+    elif A + B > 18 and HOD == 3:
+        return False
+    elif A+B <= 18 and (HOD !=3):
+        return False
+
+
+
+    A1= A//2
+
+
+
+    B1= B//2
+
+    if HOD % 2 == 0: #Ход Пети,пишем Ваню
+
+        return F_21_(A - 1, B, HOD + 1) or F_21_(A, B - 1, HOD + 1) or F_21_(A1, B, HOD + 1) or F_21_(A, B1, HOD + 1)
+
+    else:
+
+        return F_21_(A-1,B,HOD+1) and F_21_(A,B-1,HOD+1) and F_21_(A1,B,HOD+1) and F_21_(A,B1,HOD+1)
+
+
+
+
+
+
+
+
+
+
+
+
 R2 = list()
 
 
 for N in range(1, 1000):
     if N + N >=19:
             if F_21(N,N,1):
-                R2.append(N)
-print(min(R2), max(R2)) # Неверный ответ
+                print(N,F_21_(N,N,1))
+
+
+                    #R2.append(N)
+#print(min(R2))
+#14
