@@ -132,3 +132,4 @@ def F(A,B,H):
 for S in range(1,65):
     if not(F_(26, S, 1)) and F(26, S, 1):
         print(S)
+        #57
