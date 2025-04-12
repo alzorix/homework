@@ -52,3 +52,80 @@ for S in range(1,132):
     if F_19(S,1):
 
         print(S)
+#41
+
+print("20:")
+''' Вопрос 2. Найдите два наименьших значения S, когда Петя имеет выигрышную стратегию, причём одновременно выполняются два условия:
+− Петя не может выиграть за один ход;
+− Петя может выиграть своим вторым ходом независимо от того, как будет ходить Ваня.
+Найденные значения запишите в ответе в порядке возрастания.'''
+def F_19(A,H):
+    # 1- start
+    # 2- Petya
+    # 3- Vanya
+
+    if  H == 4 and A >= 132:
+        return True
+    elif  H != 4 and A >= 132:
+        return False
+    elif  H == 4 and A < 132:
+        return False
+
+
+    if H % 2 ==0:
+        return F_19(A+3,H+1) and F_19(A+6,H+1) and F_19(A*3,H+1)
+    else:
+        return  F_19(A+3,H+1) or F_19(A+6,H+1) or F_19(A*3,H+1)
+
+
+for S in range(1,132):
+
+    if F_19(S,1):
+
+        print(S)
+#14 35
+
+print("21:")
+'''Вопрос 3. Найдите минимальное значение S, при котором одновременно выполняются два условия:
+– у Вани есть выигрышная стратегия, позволяющая ему выиграть первым или вторым ходом при любой игре Пети;
+– у Вани нет стратегии, которая позволит ему гарантированно выиграть первым ходом.'''
+
+def F_19(A,H):
+    # 1- start
+    # 2- Petya
+    # 3- Vanya
+    if  H == 3 and A >= 132:
+        return True
+    elif  H != 3 and A >= 132:
+        return False
+    elif  H == 3 and A < 132:
+        return False
+
+    if H % 2 ==0:
+        return F_19(A+3,H+1) or F_19(A+6,H+1) or F_19(A*3,H+1)
+    else:
+        return  F_19(A+3,H+1) and F_19(A+6,H+1) and F_19(A*3,H+1)
+def F_19_true(A,H):
+    # 1- start
+    # 2- Petya
+    # 3- Vanya
+
+    if  (H == 3 or H == 5) and A >= 132:
+        return True
+    elif  H != 3 and H != 5 and A >= 132:
+        return False
+    elif  H == 5 and A < 132:
+        return False
+
+    if H % 2 ==0:
+        return F_19_true(A+3,H+1) or F_19_true(A+6,H+1) or F_19_true(A*3,H+1)
+    else:
+        return  F_19_true(A+3,H+1) and F_19_true(A+6,H+1) and F_19_true(A*3,H+1)
+
+
+for S in range(1,132):
+
+    if not(F_19(S,1)) and  F_19_true(S,1):
+
+        print(S)
+#32
