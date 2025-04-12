@@ -27,7 +27,7 @@ def F(A,H):
 
 
     return F(A+7,H+1) or F(A*2,H+1)
-
+#92
 def F_(A,H):
     if A >= 100 and H == 2:
         return True
