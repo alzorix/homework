@@ -34,6 +34,7 @@ for S in range(1,39):
     if F(S,1):
         print(S)
         break
+#19
 
 ''' Вопрос 2. Найдите два значения S, когда Петя имеет выигрышную стратегию, причём одновременно выполняются два условия:
 − Петя не может выиграть за один ход;
@@ -58,4 +59,45 @@ def F(A,H):
 for S in range(1,39):
     if F(S,1):
         print(S)
+#16 18
 print("21:")
+'''  Вопрос 3. Найдите минимальное значение S, при котором одновременно выполняются два условия:
+– у Вани есть выигрышная стратегия, позволяющая ему выиграть первым или вторым ходом при любой игре Пети;
+– у Вани нет стратегии, которая позволит ему гарантированно выиграть первым ходом. '''
+def F(A,H):
+    #st
+    #pet
+    #van
+   if A >=39 and H ==3:
+       return True
+   if A >=39 and H !=3:
+       return False
+   if A <39 and H ==3:
+       return False
+
+   if H % 2 ==0:
+       return F(A+1,H+1) or F(A+3,H+1) or F(A*2,H+1)
+   else:
+       return F(A + 1, H + 1) and F(A + 3, H + 1) and F(A * 2, H + 1)
+
+def F_true(A,H):
+    #st
+    #pet
+    #van
+   if A >=39 and (H ==3 or H == 5):
+       return True
+   if A >=39 and H !=3 and H != 5:
+       return False
+   if A <39 and H == 5 :
+       return False
+
+   if H % 2 == 0:
+        return F_true(A + 1, H + 1) or F_true(A + 3, H + 1) or F_true(A * 2, H + 1)
+   else:
+        return F_true(A + 1, H + 1) and F_true(A + 3, H + 1) and F_true(A * 2, H + 1)
+
+for S in range(1,39):
+    if not(F(S,1)) and F_true(S,1):
+        print(S)
+
+#15
