@@ -13,3 +13,108 @@
   Вопрос 3. Найдите значение S, при котором одновременно выполняются два условия:
 – у Вани есть выигрышная стратегия, позволяющая ему выиграть первым или вторым ходом при любой игре Пети;
 – у Вани нет стратегии, которая позволит ему гарантированно выиграть первым ходом. '''
+print("19:")
+def F(A,H):
+    #start Petya Vanya
+    if A >= 61 and H == 2:
+        return True
+    if A < 61 and H == 2:
+        return False
+    if A >= 61 and H != 2:
+        return False
+    operations = list()
+    if A + 1 <= 80:
+        operations.append(F(A+1,H+1))
+    if A * 2<= 80:
+        operations.append(F(A*2, H + 1))
+
+    return any(operations)
+
+
+c = 0
+for S in range(1,61):
+    if F(S,1):
+        c+=1
+print(c)
+
+print("20:")
+'''Вопрос 2. Найдите два наименьших значения S, когда Петя имеет выигрышную стратегию, причём одновременно выполняются два условия:
+– Петя не может выиграть за один ход;
+– Петя может выиграть своим вторым ходом независимо от того, как будет ходить Ваня.
+Найденные значения запишите в ответе в порядке возрастания.'''
+
+def F(A,H):
+    #start Petya Vanya
+    if A >= 61 and H == 4:
+        return True
+    if A < 61 and H == 4:
+        return False
+    if A >= 61 and H != 4:
+        return False
+    operations = list()
+    if A + 1 <= 80:
+        operations.append(F(A+1,H+1))
+    if A * 2<= 80:
+        operations.append(F(A*2, H + 1))
+
+    if H % 2 ==0:
+
+        return all(operations)
+    else:
+        return any(operations)
+
+
+
+for S in range(1,61):
+    if F(S,1):
+        print(S)
+#15 29
+print("21:")
+'''  Вопрос 3. Найдите значение S, при котором одновременно выполняются два условия:
+– у Вани есть выигрышная стратегия, позволяющая ему выиграть первым или вторым ходом при любой игре Пети;
+– у Вани нет стратегии, которая позволит ему гарантированно выиграть первым ходом.'''
+
+def F(A,H):
+    #start Petya Vanya
+    if A >= 61 and H == 3:
+        return True
+    if A < 61 and H == 3:
+        return False
+    if A >= 61 and H != 3:
+        return False
+    operations = list()
+    if A + 1 <= 80:
+        operations.append(F(A+1,H+1))
+    if A * 2<= 80:
+        operations.append(F(A*2, H + 1))
+
+    if H % 2 ==0:
+
+        return any(operations)
+    else:
+        return all(operations)
+
+
+def F_true(A,H):
+    #start Petya Vanya
+    if A >= 61 and (H == 3 or H == 5):
+        return True
+    if A < 61 and  H == 5:
+        return False
+    if A >= 61 and H != 3 and H != 5:
+        return False
+    operations = list()
+    if A + 1 <= 80:
+        operations.append(F_true(A+1,H+1))
+    if A * 2<= 80:
+        operations.append(F_true(A*2, H + 1))
+
+    if H % 2 ==0:
+
+        return any(operations)
+    else:
+        return all(operations)
+
+for S in range(1,61):
+    if not(F(S,1)) and F_true(S,1):
+        print(S)
