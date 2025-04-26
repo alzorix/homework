@@ -79,7 +79,7 @@ def F(A,win,H):
                 return F(A*2,True,H+1) or F(A+2,True,H+1) or F(A,False,H+1)
         else:
             return F(A * 2, False, H + 1) or F(A + 2, False, H + 1)
-    else: # Статегия выиграш => and?
+    else:
         if win:
 
                 return F(A*2,True,H+1) and F(A+2,True,H+1) and F(A,False,H+1)

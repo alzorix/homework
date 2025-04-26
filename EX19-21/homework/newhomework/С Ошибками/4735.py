@@ -71,15 +71,34 @@ def F(A,B,H):
     else:
         return F(A+2,B,H+1) or F(A,B+2,H+1) or F(A*2,B,H+1) or F(A,B*2,H+1)
 
+def F_(A,B,H):
+    if A+B >= 63 and H == 2:
+        if A+B>=74:
+            return False
+        else:
+            return True
+    elif A+B >= 63 and H == 1:
+        if A+B >=74:
+            return True
+        else:
+            return False
+    elif A+B >= 63 and H <1:
+        return False
 
+
+    elif A+B < 63 and H == 2:
+        return False
+
+    if H %2 ==0:
+
+        return F_(A+2,B,H+1) and F_(A,B+2,H+1) and F_(A*2,B,H+1) and F_(A,B*2,H+1)
+    else:
+        return F_(A+2,B,H+1) or F_(A,B+2,H+1) or F_(A*2,B,H+1) or F_(A,B*2,H+1)
 for S in range(1,48):
-    if F(15,S,1):
+    if F(15,S,1) and not(F_(15,S,1)):
         print(S)
-#Где-то ошибка
-# 2
-# 16
-# 22
-# 29
-# 30
-# 42
-# 43
+
+# 2 30
+  Вопрос 3.Укажите значение S, при котором одновременно выполняются два условия:
+– у Вити есть выигрышная стратегия, позволяющая ему выиграть первым или вторым ходом при любой игре Паши;
+– у Вити нет стратегии, которая позволит ему гарантированно выиграть первым ходом. '''

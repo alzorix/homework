@@ -61,12 +61,31 @@ def F(A,H):
             return F(A-1,H+1) and F(A-3,H+1) and F(A-7,H+1)
         else:
             return F(A - 1, H + 1) or F(A - 3, H + 1) or F(A - 7, H + 1)
+def F_(A,H):
+    if H==2  and A  == 42:
+        return True
+    elif H!=2  and A  == 42:
+        return False
+    elif H==2  and A  != 42:
+        return False
+
+    if A <42:
+
+        if H %2 ==0:
+            return F_(A+1,H+1) and F_(A+3,H+1) and F_(A+7,H+1)
+        else:
+            return F_(A + 1, H + 1) or F_(A + 3, H + 1) or F_(A + 7, H + 1)
+    else:
+        if H %2 ==0:
+            return F_(A-1,H+1) and F_(A-3,H+1) and F_(A-7,H+1)
+        else:
+            return F_(A - 1, H + 1) or F_(A - 3, H + 1) or F_(A - 7, H + 1)
 
 for S in range(1,100):
-    if F(S,1):
+    if F(S,1) and not(F_(S,1)):
             print(S)
 #31
-#35
+#37
 print("21:")
 '''Вопрос 3. Найдите максимальное значение S, при котором одновременно выполняются два условия:
 – у Вани есть выигрышная стратегия, позволяющая ему выиграть первым или вторым ходом при любой игре Пети;
@@ -84,12 +103,12 @@ def F(A,H):
         if H %2 ==0:
             return F(A+1,H+1) or F(A+3,H+1) or F(A+7,H+1)
         else:
-            return F(A + 1, H + 1) or F(A + 3, H + 1) or F(A + 7, H + 1)
+            return F(A + 1, H + 1) and F(A + 3, H + 1) and F(A + 7, H + 1)
     else:
         if H %2 ==0:
             return F(A-1,H+1) or F(A-3,H+1) or F(A-7,H+1)
         else:
-            return F(A - 1, H + 1) or F(A - 3, H + 1) or F(A - 7, H + 1)
+            return F(A - 1, H + 1) and F(A - 3, H + 1) and F(A - 7, H + 1)
 
 def F_(A,H):
     if H==3  and A  == 42:
@@ -104,39 +123,14 @@ def F_(A,H):
         if H %2 ==0:
             return F_(A+1,H+1) or F_(A+3,H+1) or F_(A+7,H+1)
         else:
-            return F_(A + 1, H + 1) or F_(A + 3, H + 1) or F_(A + 7, H + 1)
+            return F_(A + 1, H + 1) and F_(A + 3, H + 1) and F_(A + 7, H + 1)
     else:
         if H %2 ==0:
             return F_(A-1,H+1) or F_(A-3,H+1) or F_(A-7,H+1)
         else:
-            return F_(A - 1, H + 1) or F_(A - 3, H + 1) or F_(A - 7, H + 1)
+            return F_(A - 1, H + 1) and F_(A - 3, H + 1) and F_(A - 7, H + 1)
 
 for S in range(1,100):
     if F(S,1):
-        print(S,(F_(S,1)))
-# 14 False
-# 18 False
-# 20 False
-# 22 False
-# 24 False
-# 26 False
-# 28 True
-# 30 False
-# 32 True
-# 34 True
-# 36 True
-# 38 True
-# 40 True
-# 44 True
-# 46 True
-# 48 True
-# 50 True
-# 52 True
-# 54 False
-# 56 True
-# 58 False
-# 60 False
-# 62 False
-# 64 False
-# 66 False
-# 70 False
+        print(S,not(F_(S,1)))
+#50
