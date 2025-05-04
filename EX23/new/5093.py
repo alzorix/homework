@@ -12,7 +12,7 @@
   а также не содержит чисел 12 и 20.
   Также программа не должна содержать двух команд «Умножь на 3» подряд. '''
 
-def F(start,end,fifteen,thirty,ymnojThree):
+def F(start,end,fifteen = False,thirty = False,ymnojThree = False):
     if start == 15:
         fifteen = True
     if start == 30:
@@ -24,15 +24,18 @@ def F(start,end,fifteen,thirty,ymnojThree):
 
 
     if start == end and fifteen and thirty:
-        return True
+        return 1
     if start == end:
-        return False
+        return 0
     elif start>= end:
-        return False
+        return 0
     else:
         if ymnojThree :
-            return F(start + 1, end, fifteen, thirty, False) or F(start + 2, end, fifteen, thirty, False)
+            return F(start + 1, end, fifteen, thirty, False) + F(start + 2, end, fifteen, thirty, False)
 
         else:
-            return F(start+1,end,fifteen,thirty,False) or F(start+2,end,fifteen,thirty,False) or F(start*3,end,fifteen,thirty,True)
+            return F(start+1,end,fifteen,thirty,False) + F(start+2,end,fifteen,thirty,False) + F(start*3,end,fifteen,thirty,True)
 
+print(F(2,38))
+
+#1243550

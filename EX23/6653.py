@@ -22,11 +22,15 @@ def F(start,end,S):
         return 0
 
     if start == end:
-        return 1
+        if S != None:
+
+            return 1
+        else:
+            return 0
     elif start>end:
         return 0
     else:
         return F(start+1,end,S) + F(start+2,end,S) + F(start*3,end,S)
 
 print(F(6,25,None))
-# Почему неверный ответ? 3218
+# Почему неверный ответ? 2700
