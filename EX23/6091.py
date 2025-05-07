@@ -14,6 +14,6 @@ def F(start,end,history:str="",energy=0,count=1):
         return F(start+1,end,history+"1",energy+int(one[count]),count+1) + F(start*2,end,history+"2",energy+int(two[count]),count+1)
 
 print(F(1,16))
-
+print(sorted(results))
 print(min(results))
 #3

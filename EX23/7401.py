@@ -1,4 +1,5 @@
-'''(№ 7401) (П. Тюрин) У исполнителя имеются две команды, которые обозначены номерами:
+'''(№ 7401) (П. Тюрин) У исполнителя имеются две команды,
+ которые обозначены номерами:
 
 1. Умножить на 2
 2. Прибавить 3
@@ -13,27 +14,28 @@
 Сколько различных чисел содержится во всех таких траекториях вычислений? '''
 
 
-alll = set()
+alll = list()
 
-def F(start=2,end=70,history=[],plus=False):
-    alll.add(start)
+def F(start=2,end=70,history=[],plus=0):
+
     history2 = list(history)
     history2.append(start)
 
     if start == end and ((16 in history and 8 in history) or 32 in history):
-        return 1
+        if not( 16 in history and 8 in history and 32 in history ):
+            alll.extend(history2)
+            return 1
     if start == end:
         return 0
     if start > end:
         return 0
 
-    if not(plus):
-        return F(start*2,end,history2,plus= False) + F(start+3,end,history2,plus = True)
+    if  plus !=2:
+        return F(start*2,end,history2,plus= 0) + F(start+3,end,history2,plus = plus+1)
     else:
-        return F(start * 2, end, history2, plus=False)
+        return F(start * 2, end, history2, plus=0)
 
 
 F()
-print(len(alll))
-#69
-#Не вижу ошибку
+print(len(set(alll)))
+#12

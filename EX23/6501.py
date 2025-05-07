@@ -19,7 +19,8 @@ def F(start=1,end=43,fist=0,twentyfive=0):
     if start == end and fist<= 3 and twentyfive:
         return 1
 
-
+    if fist >3:
+        return 0
     if start == end:
         return 0
     if start > end:

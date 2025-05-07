@@ -14,15 +14,15 @@ from functools import lru_cache
 
 @lru_cache(None)
 def F(start=9,end=84,sixteen=0,vichet= False,passreturn= False):
-    if start-end >10: #точность тут не важна,взял с запасом,чтобы не думать
+    if start-end >5:
         return 0
     if str(start)[-1] == "3":
         return 0
 
-    if start < end and passreturn:
-        return 0
-    if start > end:
-        passreturn = True
+    # if start < end and passreturn:
+    #     return 0
+    # if start > end:
+    #     passreturn = True
 
     if start == 60:
         sixteen+=1
@@ -48,4 +48,4 @@ D. Умножить на 2'''
 
 
 print(F())
-#Где-то есть ошибка,ответ 997324
+

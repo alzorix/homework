@@ -17,12 +17,12 @@ def F(start,end,history_ansewer:bool,vichet:bool,twentySix:bool):
         twentySix = True
     # if start > end + 3:
     #     return 0
-    if start > end:
-
-        if history_ansewer:
-            return 0
-        else:
-            history_ansewer = True
+    if start > end+3:
+        return 0
+        # if history_ansewer:
+        #     return 0
+        # else:
+        #     history_ansewer = True
 
     if start == end:
         if twentySix:
