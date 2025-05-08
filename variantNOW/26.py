@@ -96,3 +96,4 @@ for current_time in range(end_time+1000000):
 
 print(masters)
 print(max_repair,utilization)
+#72 218

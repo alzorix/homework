@@ -2,13 +2,23 @@
 Определите максимальное количество символов в непрерывной последовательности,
  являющейся корректным арифметическим выражением с целыми неотрицательными чётными числами.
  В этом выражении никакие два знака арифметических операций не стоят рядом,
-  порядок действий определяется по правилам математики. В записи чисел отсутствуют незначащие (ведущие) нули.'''
+  порядок действий определяется по правилам математики.
+  В записи чисел отсутствуют незначащие (ведущие) нули.'''
 
 with open("24.txt") as file:
     line = file.readline().strip()
     file.close()
 
 line = line.replace("+","*")
+line = line.replace("2","1")
+line = line.replace("3","1")
+line = line.replace("4","1")
+line = line.replace("5","1")
+line = line.replace("6","1")
+line = line.replace("7","1")
+line = line.replace("8","1")
+line = line.replace("9","1")
+
 
 
 lines = line.split("*")
@@ -22,24 +32,25 @@ for local in lines:
             global_max_lenght = max(max_lenght-1,global_max_lenght)
         else:
             max_lenght = 0
-    elif local != "" and local == "0":
+    elif local != "" and local[0] == "0":
             global_max_lenght = max(max_lenght +1 , global_max_lenght)
-            temp = list()
-            for ss in range(1,10):
-                if local.rfind(f"{ss}") > 0:
-
-                    temp.append(local.rfind(f"{ss}"))
-            r = min(temp)
+            r = local.find("1")
             if r> 0:
-                if int(local[r::]) % 2 ==0:
-                    max_lenght = len(local[r::]) +1
-                    global_max_lenght = max(max_lenght - 1, global_max_lenght)
+                    if int(local[r::]) % 2 ==0:
+                        max_lenght = len(local[r::]) +1
+                        global_max_lenght = max(max_lenght - 1, global_max_lenght)
+                    else:
+                        max_lenght = 0
+
 
             else:
-                max_lenght = 2
-                global_max_lenght = max(max_lenght - 1, global_max_lenght)
+                    max_lenght = 2 # 0+
+
+
     else:
-            max_lenght = 0
+            max_lenght = 0 # 0+
+    global_max_lenght = max(max_lenght - 1, global_max_lenght)
+global_max_lenght = max(max_lenght - 1, global_max_lenght)
 print(global_max_lenght)
 #216
 
