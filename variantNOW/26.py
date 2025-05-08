@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 end_time = 0
 max_repair = 0
@@ -8,18 +8,19 @@ class item():
     go_time : int
     fix_time:int
     number_master:int
-
+@dataclass
+class Task():
+    fix_end_time : int
 @dataclass
 class masterC():
-    queue : list
-    number_master:int
-    repeir_count: int
+    queue : list[Task]
+    repeir_count: int = 0
 
     def check(self, current_time):
 
         new_queue = []
         for task in self.queue:
-            if current_time < task.go_time + task.fix_time:
+            if current_time < task.fix_end_time:
                 new_queue.append(task)
             else:
                 self.repeir_count += 1
@@ -30,7 +31,12 @@ class masterC():
     def add(self, item):
         global utilization
         if len(self.queue) < 5:
-            self.queue.append(item)
+            if len(self.queue) !=0:
+                new_time = max(self.queue[-1].fix_end_time ,item.go_time )+   item.fix_time
+            else:
+                new_time =  item.fix_time + item.go_time
+            new_task = Task(fix_end_time=new_time)
+            self.queue.append(new_task)
         else:
             utilization += 1
 
@@ -54,14 +60,15 @@ database.sort(key = lambda x:( x.go_time,   x.fix_time,  x.number_master    ))
 masters = dict()
 for x in range(1,max_master+1):
     new_queue = list()
-    local_master = masterC(queue = new_queue,number_master=x+1,repeir_count=0)
+    repeir_count = 0
+    local_master = masterC(queue = new_queue,repeir_count=repeir_count)
     masters[x] = local_master
 
 
-for current_time in range(end_time+10):
-    print(masters)
+for current_time in range(end_time+1000000):
     for x in masters.keys():
         masters[x].check(current_time=current_time)
+
 
 
 
@@ -74,7 +81,7 @@ for current_time in range(end_time+10):
             if new_item.number_master !=0:
                 masters[new_item.number_master].add(item=new_item)
 
-            if new_item.number_master ==0:
+            else:
                 temp = list()
                 for x in masters.items():
                     temp.append(len(x[1].queue))
@@ -83,22 +90,9 @@ for current_time in range(end_time+10):
                 for x in masters.keys():
                     if len(masters[x].queue) == temp_min:
                         masters[x].add(new_item)
+                        break
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    else:
-        print("Конец рабочего дня")
-        break
-
-print(utilization,max_repair)
+print(masters)
+print(max_repair,utilization)
