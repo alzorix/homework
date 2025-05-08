@@ -21,7 +21,7 @@ for local in lines:
             max_lenght += len(local)+1
             global_max_lenght = max(max_lenght-1,global_max_lenght)
         else:
-            None
+            max_lenght = 0
     elif local != "" and local == "0":
             global_max_lenght = max(max_lenght +1 , global_max_lenght)
             temp = list()
