@@ -52,5 +52,5 @@ for local in lines:
     global_max_lenght = max(max_lenght - 1, global_max_lenght)
 global_max_lenght = max(max_lenght - 1, global_max_lenght)
 print(global_max_lenght)
-#216
+#72
 
