@@ -12,7 +12,8 @@ def F(start=48,end=4,seventeen=0,twentyfive=0):
     if start == 15:
         return 0
 
-    return F(start-2,end,seventeen,twentyfive) + F(start-3,end,seventeen,twentyfive) + F(start//3,end,seventeen,twentyfive)
+    return (F(start-2,end,seventeen,twentyfive) + F(start-3,end,seventeen,twentyfive)
+            + F(start//3,end,seventeen,twentyfive))
 
 print(F())
 #9540
