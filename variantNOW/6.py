@@ -10,27 +10,27 @@ for x in range(5):
     forward(6*coif)
     right(90)
     forward(3*coif)
-    forward(90)
+    right(90)
 penup()
 forward(4 * coif)
 right(90)
 forward(2 * coif)
-forward(90)
+right(90)
 pendown()
 for x in range(8):
     forward(8*coif)
     right(90)
     forward(5*coif)
-    forward(90)
+    right(90)
 penup()
 forward(4 * coif)
 right(90)
 forward(2 * coif)
-forward(90)
+left(90)
 pendown()
 for x in range(4):
     forward(5*coif)
-    right(90)
+    left(90)
 penup()
 for x in range(-100,100):
     for y in range(-100, 100):
@@ -39,6 +39,5 @@ for x in range(-100,100):
 
 
 done()
-# 22 * 22 + 2*18 = 520
+# 67
 
-#без понятия где ошибка
