@@ -1,12 +1,12 @@
 data = list()
-with open("B") as file:
+with open("A") as file:
     line = file.readline().strip()
 
     while line !="":
         x,y,h = line.split("\t")
         x = float(str(x).replace(",","."))
-        y = float(str(x).replace(",","."))
-        h = int(h)
+        y = float(str(y).replace(",","."))
+        h = float(h.replace(",", "."))
         data.append((x,y,h))
 
 
@@ -14,8 +14,8 @@ with open("B") as file:
 #print(data)
 from  math import sqrt
 def dist(p,p1):
-    x2,y2,h = p
-    x1,y1,h = p1
+    x2,y2,_ = p
+    x1,y1,_ = p1
     return sqrt(  (x2-x1)**2  + (y2-y1) **2        )
 
 
@@ -38,9 +38,9 @@ while len(data) >0:
         clusters.append(cluster)
         print(len(cluster))
 def distPLUS(p,p1):
-    x2,y2,h = p
-    x1,y1,h = p1
-    return sqrt(  (x2-x1)**2  + (y2-y1) **2        ) *h
+    x2,y2,center = p
+    x1,y1,h1 = p1
+    return sqrt((x2-x1)**2  + (y2-y1) **2) *h1
 
 def get_center(cluster):
     m = []
@@ -60,6 +60,8 @@ for center in centers:
     x_centroids.append(x)
     y_centroids.append(y)
 
-print(sum(x_centroids)*10000//len(x_centroids),sum(y_centroids)*10000//len(y_centroids))
+print(abs(sum(x_centroids)*100000/len(x_centroids)),abs(sum(y_centroids)*100000/len(y_centroids)))
+#25002803 24202181
+#1659383 1838931
 
-#невернно
+#-+

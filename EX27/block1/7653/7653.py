@@ -51,8 +51,7 @@ for center in centroids:
     y = center[1]
     x_centr.append(x)
     y_centr.append(y)
-print(sum(x_centr)*10_000 // len(x_centr),sum(y_centr)*10_000//len(y_centr))
+print(sum(x_centr)*10_000 / len(x_centr),sum(y_centr)*10_000/len(y_centr))
 #26521 53559
 
-#14678 -9311
-#ответ у файла Б неверный
+#14678 -9310
