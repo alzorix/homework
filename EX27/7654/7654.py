@@ -32,7 +32,7 @@ clusters = list()
 while len(data) >0:
     p0 = data.pop()
 
-    cluster = get_cluster(p0)
+    cluster = [p0] + get_cluster(p0)
     if len(cluster)>10:
 
         clusters.append(cluster)
@@ -50,18 +50,18 @@ def get_center(cluster):
     return min(m)[1]
 
 centers = [get_center(cluster) for cluster in clusters]
-#print(centroids)
 
-x_centroids = list()
-y_centroids = list()
+
+x_centr = list()
+y_centr = list()
 for center in centers:
     x = center[0]
     y = center[1]
-    x_centroids.append(x)
-    y_centroids.append(y)
+    x_centr.append(x)
+    y_centr.append(y)
 
-print(abs(sum(x_centroids)*100000/len(x_centroids)),abs(sum(y_centroids)*100000/len(y_centroids)))
-#25002803 24202181
+print(abs(sum(x_centr)*100000/len(x_centr)),abs(sum(y_centr)*100000/len(y_centr)))
+#25667971 24175730
 #1659383 1838931
 
-#-+
+#++

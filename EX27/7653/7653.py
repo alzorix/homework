@@ -11,9 +11,6 @@ with open("B") as file:
         data.append((x,y))
         line = file.readline().strip()
 
-#print(data)
-
-
 def dist(p1,p2):
     x1,y1 = p1
     x2,y2 = p2
@@ -54,4 +51,4 @@ for center in centroids:
 print(sum(x_centr)*10_000 / len(x_centr),sum(y_centr)*10_000/len(y_centr))
 #26521 53559
 
-#14678 -9310
+#14678 9310
