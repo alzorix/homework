@@ -17,7 +17,7 @@ def distance(p1,p2):
 
 
 def get_cluster(p0):
-    cluster = [p for p in data if distance(p0,p) < 1.9]
+    cluster = [p for p in data if distance(p0,p) < 1]
     if len(cluster)>0:
         for p in cluster:
             data.remove(p)
@@ -34,9 +34,9 @@ while len(data)>0:
 
 def get_centroid(cluster):
     m=[]
-    for p in cluster:
-        s = sum(distance(p,p1) for p1 in cluster)
-        m.append((s,p))
+    for p0 in cluster:
+        s = sum(distance(p0,p) for p in cluster)
+        m.append((s,p0))
     return min(m)[1]
 centroids = [get_centroid(cluster) for cluster in clusters]
 
