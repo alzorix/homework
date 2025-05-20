@@ -29,12 +29,18 @@ def get_cluster_A(p0):
 def get_cluster_B(p0):
     x,y = p0
 
-    if (x -3)**2 + (y -5)**2  <= 16:
-        return 0
-    elif (x -7.5)**2 + (y +3)**2  <= 16:
+
+    if y-6 >= x-9:
         return 1
-    elif (x -11.5)**2 + (y -5)**2  <= 16:
+    elif  y-6 < x-9:
         return 2
+    else:
+        print(p0)
+
+
+
+#всё равно выбивает else ,я не знаю почему
+
 
 cluster_0 = list()
 cluster_1 = list()
@@ -50,7 +56,7 @@ while len(data) != 0:
         case 0 :
             cluster_0.append(p0)
 clusters = list()
-clusters.append(cluster_0)
+#clusters.append(cluster_0)
 clusters.append(cluster_1)
 clusters.append(cluster_2)
 
