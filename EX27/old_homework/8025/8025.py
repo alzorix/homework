@@ -33,11 +33,27 @@ while len(data)>0:
     print(len(cluster))
 
 def get_centroid(cluster):
-    m=[]
+    x = list()
+    y = list()
+
     for p0 in cluster:
-        s = sum(distance(p0,p) for p in cluster)
-        m.append((s,p0))
-    return min(m)[1]
+        x.append(p0[0])
+        y.append(p0[1])
+    cr_x = sum(x) / len(x)
+    cr_y = sum(y) / len(y)
+    print(cr_y,cr_x)
+    centroid = (cr_x,cr_y)
+
+    # centroid = None
+    # for p0 in cluster:
+    #     if p0[0] ==cr_x:
+    #         if p0[1] == cr_y:
+    #             centroid = p0
+    #
+    # if centroid == None:
+    #     raise SystemError
+
+    return centroid
 centroids = [get_centroid(cluster) for cluster in clusters]
 
 x_centroids = list()
@@ -48,5 +64,5 @@ for centroid in centroids:
     x_centroids.append(x)
     y_centroids.append(y)
 print(sum(x_centroids)*10000//len(x_centroids),sum(y_centroids)*10000//len(y_centroids))
-#38780.0 58978.0
-#35294.0 61416.0
+#31190 46669
+#35259 61499

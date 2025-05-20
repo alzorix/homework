@@ -89,3 +89,4 @@ for median in medians:
     Py.append(median[1])
 print(sum(Px)*10000//len(Px),sum(Py)*10000//len(Py))
 #40893 9686
+#30438 41916
