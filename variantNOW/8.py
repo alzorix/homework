@@ -1,11 +1,30 @@
 from itertools import product
+chet = set()
+nechet = set()
+for x in product("02468",repeat =2):
+    chet.add("".join(x))
+for y in product("13579",repeat =2):
+    nechet.add("".join(y))
 c = 0
-for cortege in product("АКМС",repeat=6): #Тут было 4
-    true_string = "".join(cortege)
-    c+=1
-    if "М" not in true_string and "С" not in true_string and "КК" not in true_string:
+for chislo in range(1000,10000):
+    FLAG = True
+    str_chislo = str(chislo)
+    for test in chet:
+        if test in str_chislo:
+            FLAG = False
+            break
+    for test in nechet:
+        if test in str_chislo:
+            FLAG = False
+            break
 
-        last = c
-print(last) #Тут был с
-
-#Я без понятия почему я не увидел ошибки,они на виду.
+    s = [n for n in str_chislo]
+    s.sort()
+    ss = set(s)
+    ss = list(ss)
+    ss.sort()
+    if s == ss:
+        if FLAG:
+            c+=1
+print(c)
+#720

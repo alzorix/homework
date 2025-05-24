@@ -24,11 +24,11 @@ def get_cluster(p0):
 def get_cluster_B(p0):
     x,y = p0
 
-    if (x -3)**2 + (y -5)**2  <= 16:
+    if (x-3)**2 + (y-4.5)**2  <= 16:
         return 0
-    elif (x -7.5)**2 + (y +3)**2  <= 16:
+    elif (x-7.5)**2 + (y+3)**2  <= 16:
         return 1
-    elif (x -11.5)**2 + (y -5)**2  <= 16:
+    elif (x -11.5)**2 + (y -4.5)**2  <= 16:
         return 2
 
 # clusters = list()
