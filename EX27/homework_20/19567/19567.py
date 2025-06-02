@@ -44,3 +44,4 @@ for centroid in centroids:
 
 print(int(sum(Px)*10_000/len(Px)) ,int(sum(Py)*10_000/len(Py)))
 #10770 8264
+#3785 46909
