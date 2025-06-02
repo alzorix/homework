@@ -1,5 +1,5 @@
 data = list()
-with open("27.6.A_20290.txt") as file:
+with open("27.6.B_20290.txt") as file:
     R = file.readline().strip()
     line = file.readline().strip()
     while line != "":
@@ -32,26 +32,24 @@ for m,l in enumerate(clusters):
 clusters.pop(min(s)[1])
 print(len(clusters))
 print(clusters)
-#Как расчитать координаты края?
+
 x = list()
 y = list()
 def end_dot(cluster):
     ans = list()
-    for other_cluster in clusters:
-        if cluster != other_cluster:
-            candidats = list()
-            for other_dot in other_cluster:
-                for our_dot in cluster:
-                    candidats.append((d(our_dot,other_dot),our_dot))
-            dot = min(candidats)[1]
-            x.append(dot[0])
-            y.append(dot[1])
+    #Истинный край кластера – это одна из звёзд на графике,
+    # сумма расстояний от которой до всех остальных звёзд кластера максимальна.
+    for p in cluster:
+        ans.append((sum(d(p,p1) for p1 in cluster),p))
 
-            ans.append(min(candidats)[1])
-    return ans
+    t = max(ans)[1]
+    x.append(t[0])
+    y.append(t[1])
+
+    return 1
 
 dots = [end_dot(cluster) for cluster in clusters]
 
 print(sum(x)/len(x)*10_000,sum(y)/len(y)*10_000)
-#37051.34281597505 -781.0933950960181
-# Т.е. не верно
+#11575 4282
+#4228 16951
