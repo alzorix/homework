@@ -14,7 +14,7 @@ def noname(s,n):
         return False
 
 
-with open("file") as file:
+with open("File") as file:
     line = file.readline().strip()
     while line!= "":
         line= int(line)

@@ -34,18 +34,15 @@ def get_cluster_A(p0):
 def get_cluster_B(p0):
     x,y = p0
     resfistline= -2/3*x + 12
-    restsecondline = 2 / 3 * x -7.5
+    restsecondline = 3 / 2 * x -7.5
     if y > resfistline and y > restsecondline:
         return 0
-    if y > resfistline and y < restsecondline:
+    elif y > resfistline and y < restsecondline:
         return 1
-    if y < resfistline and y > restsecondline:
+    elif y < resfistline and y > restsecondline:
         return 2
-    if y < resfistline and y < restsecondline:
+    elif y < resfistline and y < restsecondline:
         return 3
-
-
-
     else:
         print("eR")
         print(p0)
@@ -90,4 +87,4 @@ for median in centroids:
     Py.append(median[1])
 print(sum(Px)*100000/len(Px),sum(Py)*100000/len(Py))
 #808576 580719
-#171062.2569441944 366902.38769195805 проблема
+#914239 607914
