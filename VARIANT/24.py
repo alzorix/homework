@@ -28,8 +28,6 @@ def normalize(line):
         l = l.replace("B", "1")
         l = l.replace("C", "1")
         l = l.replace("D", "1")
-        l = l.replace("E", "1")
-        l = l.replace("F", "1")
         r = l.find("1")
         if r>0:
             #print(line)
@@ -41,7 +39,17 @@ def normalize(line):
     else:
         return line
 
-
+allowline= "24680AC"
+def get_chet(num):
+    num = str(num)
+    m = [p for p in num]
+    m.reverse()
+    for n,p  in enumerate(m):
+        if p in allowline:
+            m = m[n::]
+            m.reverse()
+            return "".join(m)
+    return ""
 
 
 
@@ -50,7 +58,13 @@ for line in data:
     if line != "":
         line = normalize(line)
         if line !="":
+            if int(line,14)  %2 ==0:
             #print(line)
-            ans.append((int(line,14),len(line)))
+                ans.append((int(line,14),len(line)))
+            else:
+                t = get_chet(line)
+                if t != "":
+                    ans.append((int(t, 14), len(t)))
+
 print(max(ans)[1])
-#2599
+#2598

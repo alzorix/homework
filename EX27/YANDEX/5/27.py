@@ -38,11 +38,6 @@ data_trash = list(data_trash)
 data = list()
 
 
-data = []
-
-
-
-
 for line in data_trash:
     ID, job_name, company_name, city, min_calary, max_calary, time_job, time_published, Skills = line
     CR_salary = None
@@ -66,7 +61,6 @@ for line in data_trash:
         p = p.replace(" ", "")
         if p == "Python":
             inPython = True
-
             break
 
 
