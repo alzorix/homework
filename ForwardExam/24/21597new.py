@@ -66,16 +66,16 @@ def ysl(line:str): #На вход по очереди передаём ['10', '1
     # тем самым обеспечивая перебор с двух сторон
     if "*" in line and "-" in line:
         if line.rfind("*") < line.find("-"):
-            return True
+            return (True,line)
         else:
             while "*" in line and "-" in line:
                 if line.rfind("*") < line.find("-"):
                     return True
                 line = line[1::]
-            return False
+            return (False,line)
 
     else:
         if "*" in line or "-" in line:
-            return True
+            return (True,line)
         else:
-            return False
+            return (False,line)
