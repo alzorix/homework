@@ -62,7 +62,8 @@ print(ansewers)
 # Должна быть либо 4 либо другая цифра после *.
 # Где ошибка?
 
-def ysl(line:str):
+def ysl(line:str): #На вход по очереди передаём ['10', '10-', '10-4', '10-4*'],
+    # тем самым обеспечивая перебор с двух сторон
     if "*" in line and "-" in line:
         if line.rfind("*") < line.find("-"):
             return True
