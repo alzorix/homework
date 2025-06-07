@@ -11,11 +11,11 @@ line = line.replace("**","!")
 line = line.replace("-*","!")
 line = line.replace("*-","!")
 line = line.replace("--","!")
-line = line.replace("1","1")
-line = line.replace("2","1")
-line = line.replace("3","1")
-line = line.replace("4","1")
-line = line.replace("5","1")
+# line = line.replace("1","1")
+# line = line.replace("2","1")
+# line = line.replace("3","1")
+# line = line.replace("4","1")
+# line = line.replace("5","1")
 data = line.split("!")
 ans = list()
 
@@ -31,12 +31,12 @@ for six_line in data:
         current_six_line = six_line.replace("-","*")
         current_data = six_line.split("*")
         for chislo in current_data:
-            id_line +=len(chislo)
+            id_line +=len(chislo) +1
             if chislo != "" and (chislo[0] != "0" or chislo == "0"):
                 current_dlina += len(chislo) +1
                 ans.append((current_dlina - 1,six_line[:id_line-1]))
             elif  chislo[0] == "0":
-                ans.append((current_dlina +1,six_line[:id_line]))
+                ans.append((current_dlina +1,six_line[:id_line-len(chislo)+1]))
                 current_dlina =0
                 r = chislo.find("1")
                 if r>0:
@@ -44,7 +44,6 @@ for six_line in data:
                 else:
                     ans.append((current_dlina - 1,six_line[:id_line+1]))
                     current_dlina = 0
-
             else:
                 ans.append((current_dlina-1,six_line[:id_line-1]))
                 current_dlina =0
@@ -54,8 +53,6 @@ ans.sort(reverse=True)
 print(ans[1])
 
 for c,line in ans:
-
-
     chislaandoperation = [p for p in line]
     fist = ""
     two = ""

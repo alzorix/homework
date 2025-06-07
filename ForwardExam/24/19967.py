@@ -57,4 +57,4 @@ for line in data:
             ans.append((current_dlina - 1))
             break
 print(max(ans))
-#69
+#69-

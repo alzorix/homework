@@ -7,5 +7,5 @@ with open("24_3399.txt") as file:
             c+=1
         line = file.readline().strip()
 print(c)
-#15629
+#15629+
 #Самая быстрое решение задачи за 2 года обучения :D

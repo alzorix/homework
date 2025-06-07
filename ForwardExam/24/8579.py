@@ -27,5 +27,5 @@ for bukva in line:
     else:
         local_ans += 1
 print(max(ans))
-#49
+#49+
 #Вот такой и должна быть задача

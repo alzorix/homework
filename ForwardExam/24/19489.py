@@ -31,4 +31,4 @@ for x in range(len(line)-2):
             exit()
             print("Что-то странное")
 print(max(ans))
-#3080
+#3080 +

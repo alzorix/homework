@@ -56,5 +56,4 @@ for x in data:
                 ans.append(count + l_count)
 print(max(ans))
 
-#99
-#И где ошибка? :D
+#99 +

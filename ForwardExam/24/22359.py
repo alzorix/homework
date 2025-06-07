@@ -60,5 +60,5 @@ for candidat in data:
                 ans.append((len(candidat),candidat))
 
 print(source.rfind(max(ans)[1])+ len(max(ans)[1])-1) #счёт уже с нуля,НО в rfind это первый индекс строки
-
+#7432968
 

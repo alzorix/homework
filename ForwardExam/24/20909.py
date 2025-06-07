@@ -21,4 +21,4 @@ for x in range(len(line)-2):
         if start >=x:
             print("Что-то странное")
 print(max(ans))
-#750
+#750+
