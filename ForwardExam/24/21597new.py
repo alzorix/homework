@@ -11,71 +11,30 @@ line = line.replace("**","!")
 line = line.replace("-*","!")
 line = line.replace("*-","!")
 line = line.replace("--","!")
-
-ansewers = list()
-#Переписал,но снова пришёл к выводу,что нужен id,и срезы соответсвенно. Только они у меня снова неверные
 data = line.split("!")
-for local in data:
-    local = local.strip("-*")
-    if ("*" in local) or ("-" in local):
-        THIS_line = local
-        start = 0
-        id = 0
-        local_ans = list()
+m = 0
 
-        THIS_line = THIS_line.replace("-","*")
+for six_line in data:
+    six_line = six_line.strip("*-") #01-011-00111*01
+    if six_line != "" and len(six_line) > m:
+        for l in range(0, len(six_line) - 1):
+            if six_line[l] not in "*-":
+                for r in range (l + m + 1, len(six_line)):
+                    s = six_line[l:r+1]
+                    if s[-1] not in '*-':
+                       if s.count('*') > 0 or s.count('-') > 0:
+                           rf = s.rfind('*')
+                           rl = s.find('-')
+                           if rf == -1 or rl == -1 or rf < rl:
+                               ss = s.replace('-', '*')
+                               ss = ss.split('*')
+                               k = 0
+                               for i in ss:
+                                   if i == '' or len(i) > 1 and i[0] == '0':
+                                       k = 1
+                                       break
+                               if k == 0:
+                                   m = max(m, len(s))
 
-        L_data = THIS_line.split("*")
+print(m)
 
-        for candidat in L_data: #2323+234*02312
-                if candidat != "" and (candidat[0] != "0" or candidat == "0"):
-                    id +=len(candidat)-1 +1 #-1 индексация с 0, +1 из-за знака
-                    local_ans.append(local[start:id-0])#вычетаем знак
-                elif candidat != "" and candidat[0] == "0":
-                    id += 1 #добавляем только 0,так как + уже учитывется
-                    local_ans.append(local[start:id+1]) #+1 из-за особоенности среза
-
-
-                    positions = [candidat.find(d) for d in "12345"]
-                    normal_bukva = min([p for p in positions if p != -1], default=-1)
-                    if normal_bukva > -1:
-                        start += id + normal_bukva
-
-                        id = id + len(candidat)-1 +1 #-1 индексация с 0; +1 из-за знака
-                        local_ans.append(local[start:id])#вычетаем знак
-
-                    else:
-
-                        start = id + len(candidat)-1 +1#Фактически сбос
-                        id = id + len(candidat)-1 +1#Фактически сбос
-
-                else:
-
-                    id +=1 #возможно нужно +2
-                    start = id
-        local_ans.append(local[start:id+1])
-        ansewers.append(local_ans)
-print(ansewers)
-#В ansewers встречаются такие строки
-# ['10', '10-', '10-4', '10-4*'] ,
-# по идеи в  '10-4*' знака * быть не должно.
-# Должна быть либо 4 либо другая цифра после *.
-# Где ошибка?
-
-def ysl(line:str): #На вход по очереди передаём ['10', '10-', '10-4', '10-4*'],
-    # тем самым обеспечивая перебор с двух сторон
-    if "*" in line and "-" in line:
-        if line.rfind("*") < line.find("-"):
-            return (True,line)
-        else:
-            while "*" in line and "-" in line:
-                if line.rfind("*") < line.find("-"):
-                    return True
-                line = line[1::]
-            return (False,line)
-
-    else:
-        if "*" in line or "-" in line:
-            return (True,line)
-        else:
-            return (False,line)
