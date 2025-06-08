@@ -38,4 +38,4 @@ for current_time in range(1441):
                 current_occupied -=kolvo
 print(dforf_toptop,full_clothes)
 #12933 320
-#Всё НЕправильно
+#Всё НЕправильноrfr
