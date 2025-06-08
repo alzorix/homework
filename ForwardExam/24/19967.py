@@ -1,20 +1,8 @@
 with open("24_19967(1).txt") as file:
     line = file.readline().strip()
 
-line = line.replace("","")
-
 data =line.split("AFD")
-data.pop()# первая не начинается
-# print(data)
-# maxx = 0
-# for line in data:
-#     for bukva in range(len(line)):
-#         try:
-#             s = line[0:bukva]
-#             maxx = max(maxx,len(s))
-#         except:
-#             None
-# print(maxx) #Почему это вообще выдаёт ответ
+data = data[1::]# первая не начинается c AFD
 '''Текстовый файл состоит не более чем из 106 символов и содержит 
 только цифры шестнадцатеричной системы счисления, 
 а также знаки «+» и «*» (сложения и умножения).
@@ -36,25 +24,30 @@ for line in data:
     line = line.replace("7", "1")
     line = line.replace("8", "1")
     line = line.replace("9", "1")
-    line = line.replace("A", "1")
-    line = line.replace("B", "1")
-    line = line.replace("C", "1")
-    line = line.replace("D", "1")
-    line = line.replace("E", "1")
-    line = line.replace("F", "1")
+    line = line.replace("A", "!")
+    line = line.replace("B", "!")
+    line = line.replace("C", "!")
+    line = line.replace("D", "!")
+    line = line.replace("E", "!")
+    line = line.replace("F", "!")
     line = line.replace("*", "+")
+    #print(line[0:300]) #111+111+111+111+111+111+111+0111+111+111+0111+1000111+111111+111+111111+111+111+111+0111+!111111+11+
+    line = line.split("!")
+    line = line[0] #111+111+111+111+111+111+111+0111+111+111+0111+1000111+111111+111+111111+111+111+111+0111+
+    #print(line)
     line = line.split("+")
-
+    #print(line) #['111', '111', '111', '111', '111', '111', '111', '0111', '111', '111', '0111', '1000111',
     current_dlina =0
     for chislo in line:
         if chislo != "" and (chislo[0] != "0" or chislo == "0"):
             current_dlina += len(chislo) + 1
             ans.append(current_dlina - 1)
-        elif chislo[0] == "0":
+        elif chislo != "" and chislo[0] == "0":
             ans.append(current_dlina + 1)
             break
         else:
-            ans.append((current_dlina - 1))
+            ans.append(current_dlina - 1)
             break
-print(max(ans))
-#69-
+    print(current_dlina)
+print(max(ans)+3) #за AFD
+#72

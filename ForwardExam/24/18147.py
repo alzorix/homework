@@ -5,7 +5,7 @@
  между которыми отсутствует операция умножения.
 В этом выражении никакие два знака арифметических операций не стоят рядом.'''
 with open("24_18147.txt") as file:
-    line = file.readline().strip()
+    line = file.readline().strip() # этом выражении никакие два знака арифметических операций не стоят рядом.
     line = line.replace("**", "*")
     line = line.replace("*+", "*")
     line = line.replace("+*", "*")
@@ -13,22 +13,22 @@ with open("24_18147.txt") as file:
 
 from copy import  deepcopy
 
-data = line.split("*")
+data = line.split("*") #между которыми отсутствует операция умножения
 ans = list()
 
 for line in data:
     line = line.split("+")
-    ANS_LOCAL = 0
+    ANS_LOCAL = 0 #Если нам попался знак умножения,то мы сбрасывем ANS_LOCAL
 
     for chislo in line:
         if chislo != "":
 
             if chislo != "" and chislo[0] != "0":
-                ANS_LOCAL+=int(chislo)
+                ANS_LOCAL+=int(chislo) #Так как умножение мы убрали у нас остался только +
                 ans.append(ANS_LOCAL)
             elif chislo == "0":
+                ANS_LOCAL+=int(chislo)
                 ans.append(ANS_LOCAL)
-                ANS_LOCAL.clear()
             elif  chislo[0] == "0":
                 ans.append(ANS_LOCAL)
                 ANS_LOCAL=0
